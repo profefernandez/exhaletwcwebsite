@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { Button } from '../components/ui/Button';
 import { useContactForm } from '../hooks/useContactForm';
@@ -176,9 +177,9 @@ export const Schedule: React.FC = () => {
 
               <p className="text-xs text-gray-500 mt-4 text-center">
                 By submitting this form, you agree to our{' '}
-                <a href="/privacy-policy" className="text-[#953fcf] underline hover:text-[#8b54d7]">
+                <Link to="/privacy-policy" className="text-[#953fcf] underline hover:text-[#8b54d7]">
                   Privacy Policy
-                </a>
+                </Link>
                 . All information is kept strictly confidential.
               </p>
             </form>

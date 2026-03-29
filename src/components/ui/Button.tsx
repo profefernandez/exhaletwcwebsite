@@ -30,6 +30,7 @@ export const Button: React.FC<ButtonProps> = ({
   size = 'md',
   children,
   className = '',
+  asChild: _asChild,
   ...props
 }) => {
   return (
