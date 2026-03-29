@@ -4,13 +4,11 @@ services:
     image: directus/directus:latest
     ports:
       - "8055:8055"
+    env_file:
+      - .env
     environment:
-      KEY: "your-secret-key-here"
-      SECRET: "your-secret-secret-here"
       DB_CLIENT: "sqlite3"
       DB_FILENAME: "/directus/database/data.db"
-      ADMIN_EMAIL: "admin@exhaletwc.com"
-      ADMIN_PASSWORD: "change-me-in-production"
     volumes:
       - directus_data:/directus/database
       - directus_uploads:/directus/uploads
