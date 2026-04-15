@@ -40,69 +40,97 @@ export const About: React.FC = () => {
 
       {/* ── PAGE HERO ── */}
       <section
-        className="pt-40 pb-24 relative overflow-hidden"
-        style={{ background: 'linear-gradient(150deg, #1C1C2E 0%, #2D1B4E 60%, #4A1A7A 100%)' }}
-        aria-label="About page header"
+        className="relative pt-44 pb-28 overflow-hidden"
+        aria-labelledby="about-hero-heading"
+        style={{ background: 'linear-gradient(150deg, #1C0A3A 0%, #2D1B4E 60%, #4A1A7A 100%)' }}
       >
-        <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ backgroundImage: 'url(/images/therapist-headshot.png)', backgroundSize: 'cover', backgroundPosition: 'center top', filter: 'blur(40px)' }} aria-hidden="true" />
+        <img
+          src="/images/ocean-calm.jpg"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover opacity-20"
+        />
         <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-10 text-center">
-          <span className="badge-pill mb-6 inline-flex" style={{ background: 'rgba(201,168,76,0.12)', color: '#F0DFA0', borderColor: 'rgba(201,168,76,0.3)' }}>
+          <span
+            className="badge-pill mb-6 inline-flex"
+            style={{ background: 'rgba(201,168,76,0.15)', color: '#F0DFA0', borderColor: 'rgba(201,168,76,0.4)' }}
+          >
             Our Story
           </span>
-          <h1 className="text-5xl sm:text-6xl font-light text-white mb-6" style={{ fontFamily: 'var(--font-serif)' }}>
-            A practice built on<br /><em className="text-[#EDD2FF]">deep healing.</em>
+          <h1
+            id="about-hero-heading"
+            className="font-light text-white mb-6"
+            style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(2.5rem, 6vw, 4.5rem)' }}
+          >
+            A practice built on<br /><em style={{ color: '#EDD2FF' }}>deep healing.</em>
           </h1>
-          <p className="text-lg text-white/70 max-w-2xl mx-auto leading-relaxed">
+          <p
+            className="max-w-2xl mx-auto leading-relaxed"
+            style={{ color: '#E8E0F0', fontSize: '1.125rem' }}
+          >
             Exhale TWC was founded on the belief that every person — regardless of background — deserves access to transformative, culturally affirming mental health care.
           </p>
         </div>
       </section>
 
       {/* ── THERAPIST SECTION ── */}
-      <section className="py-24 bg-white" aria-label="Meet your therapist">
+      <section className="py-28 bg-white" aria-labelledby="therapist-heading">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Portrait */}
             <div className="relative">
-              <div
-                className="w-full aspect-[4/5] rounded-3xl overflow-hidden"
-                aria-label="Therapist portrait"
-              >
+              <div className="w-full aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl">
                 <img
                   src="/images/therapist-headshot.png"
-                  alt="Exhale TWC therapist"
+                  alt="Exhale TWC licensed therapist — a warm, professional Black woman therapist specializing in culturally affirming care"
                   className="w-full h-full object-cover object-top"
+                  loading="lazy"
                 />
               </div>
               <div
                 className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-2xl p-5"
-                style={{ border: '1px solid #EDD2FF', maxWidth: '220px' }}
+                style={{ border: '2px solid #EDD2FF', maxWidth: '230px' }}
+                aria-label="Therapist credentials"
               >
-                <p className="text-sm font-semibold text-[#1C1C2E]">Licensed Therapist</p>
-                <p className="text-xs text-gray-400 mt-1">Specializing in trauma, anxiety, depression &amp; life transitions</p>
+                <p
+                  className="font-bold text-[#0F0A1A]"
+                  style={{ fontSize: '1rem' }}
+                >
+                  Licensed Therapist
+                </p>
+                <p
+                  className="text-[#4A3D5C] mt-1 leading-snug"
+                  style={{ fontSize: '0.9375rem' }}
+                >
+                  Specializing in trauma, anxiety, depression &amp; life transitions
+                </p>
               </div>
             </div>
 
             {/* Bio */}
             <div>
-              <span className="badge-pill mb-4">Meet Your Therapist</span>
-              <h2 className="text-4xl sm:text-5xl font-light mb-6 text-[#1C1C2E]" style={{ fontFamily: 'var(--font-serif)' }}>
+              <span className="badge-pill mb-5">Meet Your Therapist</span>
+              <h2
+                id="therapist-heading"
+                className="font-light mb-6 text-[#0F0A1A]"
+                style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(2rem, 4vw, 3rem)' }}
+              >
                 Shaped by experience.<br /><em>Driven by care.</em>
               </h2>
-              <span className="divider-gold mb-6" />
-              <p className="text-gray-600 leading-relaxed mb-5">
+              <span className="divider-gold" />
+              <p className="text-[#2D2040] leading-relaxed mb-5" style={{ fontSize: '1.0625rem' }}>
                 With over a decade of clinical experience, our therapist brings both professional expertise and personal understanding to every session. Having navigated the complexities of identity, community, and healing firsthand, she is uniquely positioned to walk alongside clients from Black and Brown communities.
               </p>
-              <p className="text-gray-600 leading-relaxed mb-5">
+              <p className="text-[#2D2040] leading-relaxed mb-5" style={{ fontSize: '1.0625rem' }}>
                 She holds advanced training in trauma-informed care, somatic approaches, and mindfulness-based therapies. Her work is guided by a deep respect for the whole person — your history, your culture, your body, and your future.
               </p>
-              <p className="text-gray-600 leading-relaxed mb-8">
+              <p className="text-[#2D2040] leading-relaxed mb-8" style={{ fontSize: '1.0625rem' }}>
                 At Exhale TWC, you will never be reduced to a diagnosis. You will be seen, honored, and supported in becoming the fullest version of yourself.
               </p>
               <Link
                 to="/schedule"
-                className="inline-flex items-center justify-center px-8 py-3.5 rounded-full text-sm font-semibold text-white transition-all duration-200 hover:opacity-90"
-                style={{ background: 'linear-gradient(135deg, #7B2FBE 0%, #9B59D0 100%)' }}
+                className="btn-primary"
+                aria-label="Book a consultation with our therapist"
               >
                 Book a Consultation
               </Link>
@@ -112,79 +140,116 @@ export const About: React.FC = () => {
       </section>
 
       {/* ── VALUES ── */}
-      <section className="py-24" style={{ background: '#F7EEFF' }} aria-label="Our core values">
+      <section className="py-28" style={{ background: '#F7EEFF' }} aria-labelledby="values-heading">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <div className="text-center mb-16">
-            <span className="badge-pill mb-4">What We Stand For</span>
-            <h2 className="text-4xl sm:text-5xl font-light text-[#1C1C2E]" style={{ fontFamily: 'var(--font-serif)' }}>
+            <span className="badge-pill mb-5">What We Stand For</span>
+            <h2
+              id="values-heading"
+              className="font-light text-[#0F0A1A]"
+              style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(2rem, 4vw, 3.25rem)' }}
+            >
               Our core values
             </h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
             {values.map((v, i) => (
-              <div
+              <article
                 key={i}
                 className="card-hover bg-white rounded-3xl p-8"
-                style={{ boxShadow: '0 4px 24px rgba(123,47,190,0.07)' }}
+                style={{ boxShadow: '0 4px 24px rgba(74,26,122,0.08)' }}
               >
-                <div className="flex items-start gap-4">
+                <div className="flex items-start gap-5">
                   <span
-                    className="w-10 h-10 rounded-xl flex-shrink-0 flex items-center justify-center text-white text-sm font-bold"
-                    style={{ background: 'linear-gradient(135deg, #7B2FBE 0%, #9B59D0 100%)' }}
+                    className="w-12 h-12 rounded-xl flex-shrink-0 flex items-center justify-center text-white font-bold"
+                    style={{ background: 'linear-gradient(135deg, #4A1A7A 0%, #7B2FBE 100%)', fontSize: '0.9375rem' }}
                     aria-hidden="true"
-                  >{String(i + 1).padStart(2, '0')}</span>
+                  >
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
                   <div>
-                    <h3 className="text-xl font-medium text-[#1C1C2E] mb-2" style={{ fontFamily: 'var(--font-serif)' }}>{v.title}</h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">{v.description}</p>
+                    <h3
+                      className="font-medium text-[#0F0A1A] mb-3"
+                      style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.25rem, 2vw, 1.5rem)' }}
+                    >
+                      {v.title}
+                    </h3>
+                    <p className="text-[#2D2040] leading-relaxed" style={{ fontSize: '1rem' }}>
+                      {v.description}
+                    </p>
                   </div>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── SANCTUARY IMAGE BREAK ── */}
-      <section className="relative h-80 overflow-hidden" aria-hidden="true">
+      {/* ── HEALING BOWLS QUOTE BREAK ── */}
+      <section
+        className="relative py-24 overflow-hidden"
+        aria-label="Practice philosophy quote"
+      >
         <img
-          src="/images/about-sanctuary.jpg"
-          alt="Exhale TWC therapy sanctuary"
-          className="w-full h-full object-cover"
-          style={{ objectPosition: 'center 30%' }}
+          src="/images/healing-bowls-hero.jpg"
+          alt="Crystal and Tibetan singing bowls arranged with candles — representing holistic healing"
+          className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(28,28,46,0.3), rgba(28,28,46,0.6))' }} />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <p className="text-white text-2xl sm:text-3xl font-light text-center px-6" style={{ fontFamily: 'var(--font-serif)' }}>
-            "A space where your whole self is welcome."
-          </p>
+        <div
+          className="absolute inset-0"
+          style={{ background: 'rgba(28,10,58,0.82)' }}
+          aria-hidden="true"
+        />
+        <div className="relative z-10 max-w-3xl mx-auto px-6 lg:px-10 text-center">
+          <blockquote>
+            <p
+              className="font-light text-white leading-relaxed mb-6"
+              style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.5rem, 3vw, 2.25rem)' }}
+            >
+              &ldquo;A space where your whole self is welcome.&rdquo;
+            </p>
+          </blockquote>
         </div>
       </section>
 
       {/* ── MODALITIES ── */}
-      <section className="py-24 bg-white" aria-label="Therapeutic modalities">
+      <section className="py-28 bg-white" aria-labelledby="modalities-heading">
         <div className="max-w-5xl mx-auto px-6 lg:px-10 text-center">
-          <span className="badge-pill mb-4">Our Approach</span>
-          <h2 className="text-4xl sm:text-5xl font-light text-[#1C1C2E] mb-6" style={{ fontFamily: 'var(--font-serif)' }}>
+          <span className="badge-pill mb-5">Our Approach</span>
+          <h2
+            id="modalities-heading"
+            className="font-light text-[#0F0A1A] mb-6"
+            style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(2rem, 4vw, 3.25rem)' }}
+          >
             Evidence-based. Culturally informed.
           </h2>
-          <span className="divider-gold mx-auto mb-10" />
-          <p className="text-gray-600 leading-relaxed mb-12 max-w-2xl mx-auto">
+          <span className="divider-gold mx-auto" />
+          <p
+            className="text-[#2D2040] leading-relaxed mb-12 max-w-2xl mx-auto mt-2"
+            style={{ fontSize: '1.0625rem' }}
+          >
             We integrate a range of proven therapeutic modalities, always adapting them to honor your cultural context, personal history, and healing goals.
           </p>
-          <div className="flex flex-wrap justify-center gap-3">
+          <ul
+            className="flex flex-wrap justify-center gap-3 list-none"
+            aria-label="Therapeutic modalities we use"
+          >
             {modalities.map((m, i) => (
-              <span
-                key={i}
-                className="px-5 py-2.5 rounded-full text-sm font-medium text-[#7B2FBE]"
-                style={{ background: '#F7EEFF', border: '1px solid #EDD2FF' }}
-              >{m}</span>
+              <li key={i}>
+                <span
+                  className="inline-block px-5 py-3 rounded-full font-semibold text-[#3A0F6A]"
+                  style={{ background: '#F7EEFF', border: '2px solid #EDD2FF', fontSize: '1rem' }}
+                >
+                  {m}
+                </span>
+              </li>
             ))}
-          </div>
+          </ul>
           <div className="mt-14">
             <Link
               to="/schedule"
-              className="inline-flex items-center justify-center px-10 py-4 rounded-full text-base font-semibold text-white transition-all duration-200 hover:opacity-90 hover:shadow-xl"
-              style={{ background: 'linear-gradient(135deg, #7B2FBE 0%, #9B59D0 100%)' }}
+              className="btn-primary"
+              aria-label="Start your healing journey with Exhale TWC"
             >
               Start Your Wellness Journey
             </Link>
