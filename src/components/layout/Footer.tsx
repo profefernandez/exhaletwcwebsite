@@ -6,53 +6,41 @@ export const Footer: React.FC = () => {
   return (
     <footer
       style={{ background: 'linear-gradient(135deg, #1C0A3A 0%, #2D1B4E 100%)' }}
-      className="text-white pt-20 pb-10 mt-auto"
+      className="text-gray-300 pt-16 pb-8 mt-auto"
       role="contentinfo"
-      aria-label="Site footer"
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-14 mb-14">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
 
-          {/* Brand column */}
+          {/* Brand */}
           <div>
-            <Link to="/" aria-label="Exhale Therapy, Wellness and Consulting — Home">
+            <Link to="/" aria-label="Exhale TWC — Home">
               <img
                 src="/images/logo_transparent.png"
                 alt="Exhale Therapy, Wellness & Consulting"
-                className="h-24 w-auto object-contain mb-5"
-                width="96"
-                height="96"
+                className="h-16 w-auto object-contain mb-4"
               />
             </Link>
-            <p
-              className="leading-relaxed max-w-xs"
-              style={{ color: '#E8E0F0', fontSize: '1rem' }}
-            >
+            <p className="text-sm text-gray-400 leading-relaxed max-w-xs">
               Holistic wellness therapy built on cultural affirmation, evidence-based care, and deep healing for Black and Brown communities.
             </p>
             <span className="divider-gold mt-6" />
           </div>
 
-          {/* Navigation column */}
+          {/* Navigate */}
           <nav aria-label="Footer navigation">
-            <h2
-              className="font-bold mb-6 uppercase tracking-widest"
-              style={{ color: '#FFFFFF', fontSize: '0.875rem' }}
-            >
-              Navigate
-            </h2>
-            <ul className="space-y-4 list-none">
+            <h3 className="text-white font-semibold mb-5 text-xs uppercase tracking-widest">Navigate</h3>
+            <ul className="space-y-3 list-none">
               {[
-                { label: 'Home',               path: '/' },
-                { label: 'About',              path: '/about' },
-                { label: 'Services',           path: '/services' },
-                { label: 'Book a Consultation',path: '/schedule' },
+                { label: 'Home',                path: '/' },
+                { label: 'About',               path: '/about' },
+                { label: 'Services',            path: '/services' },
+                { label: 'Book a Consultation', path: '/schedule' },
               ].map((link) => (
                 <li key={link.path}>
                   <Link
                     to={link.path}
-                    className="transition-colors duration-200 no-underline hover:underline"
-                    style={{ color: '#E8E0F0', fontSize: '1rem' }}
+                    className="text-sm text-gray-400 hover:text-purple-200 transition-colors duration-200 no-underline hover:underline"
                   >
                     {link.label}
                   </Link>
@@ -61,21 +49,15 @@ export const Footer: React.FC = () => {
             </ul>
           </nav>
 
-          {/* Connect column */}
+          {/* Connect */}
           <div>
-            <h2
-              className="font-bold mb-6 uppercase tracking-widest"
-              style={{ color: '#FFFFFF', fontSize: '0.875rem' }}
-            >
-              Connect
-            </h2>
-            <ul className="space-y-4 list-none mb-8">
+            <h3 className="text-white font-semibold mb-5 text-xs uppercase tracking-widest">Connect</h3>
+            <ul className="space-y-3 list-none mb-6">
               <li>
                 <a
                   href="mailto:hello@exhaletwc.com"
-                  className="transition-colors duration-200 hover:underline"
-                  style={{ color: '#E8E0F0', fontSize: '1rem' }}
-                  aria-label="Email Exhale TWC at hello@exhaletwc.com"
+                  className="text-sm text-gray-400 hover:text-purple-200 transition-colors duration-200 no-underline hover:underline"
+                  aria-label="Email Exhale TWC"
                 >
                   hello@exhaletwc.com
                 </a>
@@ -83,9 +65,7 @@ export const Footer: React.FC = () => {
               <li>
                 <a
                   href="https://exhaletwc.com"
-                  className="transition-colors duration-200 hover:underline"
-                  style={{ color: '#E8E0F0', fontSize: '1rem' }}
-                  aria-label="Visit the Exhale TWC website"
+                  className="text-sm text-gray-400 hover:text-purple-200 transition-colors duration-200 no-underline hover:underline"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -93,31 +73,20 @@ export const Footer: React.FC = () => {
                 </a>
               </li>
             </ul>
-            <div
-              className="p-5 rounded-2xl"
-              style={{ border: '1px solid rgba(255,255,255,0.15)', background: 'rgba(255,255,255,0.06)' }}
-              role="note"
-              aria-label="Confidentiality notice"
-            >
-              <p style={{ color: '#E8E0F0', fontSize: '0.9375rem', lineHeight: '1.7' }}>
-                <span style={{ color: '#EDD2FF', fontWeight: 700 }}>Confidential &amp; Secure.</span>{' '}
+            <div className="p-4 rounded-xl border border-white/10 bg-white/5" role="note">
+              <p className="text-xs text-gray-400 leading-relaxed">
+                <span className="text-purple-200 font-medium">Confidential &amp; Secure.</span>{' '}
                 All communications are protected. We are HIPAA-aware and committed to your privacy.
               </p>
             </div>
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div
-          className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4"
-          style={{ borderTop: '1px solid rgba(255,255,255,0.12)' }}
-        >
-          <p style={{ color: '#C4B8D8', fontSize: '0.9375rem' }}>
-            &copy; {currentYear} Exhale TWC. All rights reserved.
-          </p>
+        <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-xs text-gray-500">&copy; {currentYear} Exhale TWC. All rights reserved.</p>
           <p
-            className="italic"
-            style={{ fontFamily: 'var(--font-serif)', color: '#EDD2FF', fontSize: '1.0625rem' }}
+            className="italic text-sm"
+            style={{ fontFamily: 'var(--font-serif)', color: '#9B59D0' }}
           >
             &ldquo;Healing is not a luxury — it is a necessity.&rdquo;
           </p>

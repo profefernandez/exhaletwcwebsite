@@ -2,7 +2,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500;600;700&display=swap');
 
 /* ============================================================
-   EXHALE TWC — WCAG 2.1 AAA Design System
+   EXHALE TWC — Design System
+   Base font: 16px (browser default). Do NOT override html font-size.
+   Tailwind handles all sizing via utility classes.
+   This file only adds: brand tokens, custom components, a11y helpers.
    ============================================================ */
 
 :root {
@@ -14,54 +17,59 @@
   --color-purple-light:   #EDD2FF;
   --color-purple-mist:    #F7EEFF;
   --color-purple-mid:     #8B6FD4;
-  --color-gold:           #B8860B;
-  --color-gold-light:     #C9A84C;
+  --color-gold:           #C9A84C;
+  --color-gold-dark:      #B8860B;
   --color-gold-pale:      #F0DFA0;
-  --color-text-primary:   #0F0A1A;
-  --color-text-secondary: #2D2040;
-  --color-text-muted:     #4A3D5C;
-  --color-charcoal:       #1C1C2E;
+  --color-text-primary:   #1C1C2E;
+  --color-text-secondary: #3D3D5C;
+  --color-text-muted:     #6B7280;
   --font-serif: 'Cormorant Garamond', Georgia, serif;
   --font-sans:  'DM Sans', system-ui, -apple-system, sans-serif;
-  --focus-ring: 0 0 0 3px #FFFFFF, 0 0 0 6px #7B2FBE;
-  --focus-ring-dark: 0 0 0 3px #1C0A3A, 0 0 0 6px #C9A84C;
 }
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-html {
-  font-size: 112.5%;
-  scroll-behavior: smooth;
-  -webkit-text-size-adjust: 100%;
-}
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
 body {
   font-family: var(--font-sans);
-  font-size: 1rem;
-  line-height: 1.8;
+  font-size: 1rem;        /* 16px — browser default, no override */
+  line-height: 1.7;
   color: var(--color-text-primary);
   background-color: #ffffff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* ── Headings — font family only, NO size overrides (Tailwind handles sizes) ── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  line-height: 1.2;
+  font-weight: 400;
+}
+
+/* ── Links — only set color, let Tailwind handle decoration per context ── */
+a { transition: color 0.2s, opacity 0.2s; }
+
+/* ── Skip Link — accessibility, only visible on keyboard focus ── */
 .skip-to-main {
   position: absolute;
   top: -100%;
   left: 1rem;
   z-index: 9999;
-  padding: 0.75rem 1.5rem;
+  padding: 0.6rem 1.25rem;
   background: var(--color-purple-dark);
-  color: #FFFFFF;
+  color: #ffffff;
   font-family: var(--font-sans);
-  font-size: 1rem;
+  font-size: 0.875rem;
   font-weight: 600;
-  border-radius: 0.5rem;
+  border-radius: 0.375rem;
   text-decoration: none;
   transition: top 0.2s;
 }
-.skip-to-main:focus { top: 1rem; outline: none; box-shadow: var(--focus-ring); }
+.skip-to-main:focus { top: 0.75rem; outline: 2px solid #ffffff; outline-offset: 2px; }
 
+/* ── Screen Reader Only ── */
 .sr-only {
   position: absolute;
   width: 1px; height: 1px;
@@ -72,152 +80,100 @@ body {
   border-width: 0;
 }
 
+/* ── Focus ring — visible for keyboard users ── */
 :focus-visible {
-  outline: none;
-  box-shadow: var(--focus-ring);
+  outline: 2px solid var(--color-purple-primary);
+  outline-offset: 3px;
   border-radius: 4px;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-serif);
-  line-height: 1.2;
-  color: var(--color-text-primary);
-  font-weight: 400;
+/* ── Gold divider ── */
+.divider-gold {
+  display: block;
+  width: 3rem;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-gold-dark), var(--color-gold));
+  border-radius: 2px;
+  margin-bottom: 1.5rem;
 }
 
-h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); }
-h2 { font-size: clamp(2rem, 4vw, 3.25rem); }
-h3 { font-size: clamp(1.5rem, 3vw, 2.25rem); }
-h4 { font-size: clamp(1.25rem, 2.5vw, 1.75rem); }
-h5 { font-size: 1.25rem; }
-h6 { font-size: 1.125rem; }
-
-p {
-  font-size: 1rem;
-  line-height: 1.8;
-  color: var(--color-text-secondary);
+/* ── Badge pill ── */
+.badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.875rem;
+  border-radius: 9999px;
+  background: rgba(123,47,190,0.08);
+  color: var(--color-purple-dark);
+  border: 1px solid rgba(123,47,190,0.2);
 }
 
-a {
-  color: var(--color-purple-primary);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  transition: color 0.2s;
-}
-a:hover { color: var(--color-purple-dark); }
+/* ── Card hover ── */
+.card-hover { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+.card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 60px rgba(74,26,122,0.12); }
 
+/* ── Buttons — gold primary, white outline ── */
 .btn-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.875rem 2rem;
-  min-height: 48px;
-  min-width: 48px;
+  padding: 0.75rem 1.75rem;
   border-radius: 9999px;
   font-family: var(--font-sans);
-  font-size: 1rem;
+  font-size: 0.9375rem;
   font-weight: 700;
   letter-spacing: 0.02em;
   line-height: 1;
   text-decoration: none;
   cursor: pointer;
-  border: 2px solid transparent;
+  border: none;
   transition: all 0.2s ease;
-  background: linear-gradient(135deg, #B8860B 0%, #C9A84C 100%);
-  color: #0F0A1A;
+  background: linear-gradient(135deg, var(--color-gold-dark) 0%, var(--color-gold) 100%);
+  color: #1C1C2E;
 }
 .btn-primary:hover {
-  background: linear-gradient(135deg, #9A7009 0%, #B8860B 100%);
-  color: #0F0A1A;
-  text-decoration: none;
+  opacity: 0.9;
   transform: translateY(-1px);
-  box-shadow: 0 8px 32px rgba(184,134,11,0.35);
+  box-shadow: 0 8px 28px rgba(184,134,11,0.3);
+  text-decoration: none;
+  color: #1C1C2E;
 }
-.btn-primary:focus-visible { box-shadow: var(--focus-ring-dark); }
 
 .btn-outline {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.875rem 2rem;
-  min-height: 48px;
-  min-width: 48px;
+  padding: 0.75rem 1.75rem;
   border-radius: 9999px;
   font-family: var(--font-sans);
-  font-size: 1rem;
+  font-size: 0.9375rem;
   font-weight: 700;
   line-height: 1;
   text-decoration: none;
   cursor: pointer;
-  border: 2px solid #FFFFFF;
+  border: 2px solid rgba(255,255,255,0.8);
   background: transparent;
-  color: #FFFFFF;
+  color: #ffffff;
   transition: all 0.2s ease;
 }
-.btn-outline:hover { background: rgba(255,255,255,0.15); text-decoration: none; }
-.btn-outline:focus-visible { box-shadow: var(--focus-ring); }
+.btn-outline:hover { background: rgba(255,255,255,0.12); text-decoration: none; }
 
-.badge-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-family: var(--font-sans);
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-  padding: 0.4rem 1rem;
-  border-radius: 9999px;
-  background: rgba(123,47,190,0.1);
-  color: #3A0F6A;
-  border: 1px solid rgba(123,47,190,0.25);
-}
+/* ── Section spacing ── */
+.section-py { padding-top: 5rem; padding-bottom: 5rem; }
+@media (min-width: 768px) { .section-py { padding-top: 7rem; padding-bottom: 7rem; } }
 
-.divider-gold {
-  display: block;
-  width: 3rem;
-  height: 2px;
-  background: linear-gradient(90deg, #B8860B, #C9A84C);
-  border-radius: 2px;
-  margin-bottom: 1.5rem;
-}
-
-.card-hover { transition: transform 0.25s ease, box-shadow 0.25s ease; }
-.card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 60px rgba(74,26,122,0.15); }
-
+/* ── Images ── */
 img { max-width: 100%; height: auto; display: block; }
 
-input, textarea, select {
-  font-family: var(--font-sans);
-  font-size: 1rem;
-  color: var(--color-text-primary);
-  background: #FFFFFF;
-  border: 2px solid #5A4A7A;
-  border-radius: 0.5rem;
-  padding: 0.875rem 1rem;
-  width: 100%;
-  min-height: 48px;
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-input:focus, textarea:focus, select:focus {
-  outline: none;
-  border-color: var(--color-purple-primary);
-  box-shadow: 0 0 0 3px rgba(123,47,190,0.25);
-}
-input::placeholder, textarea::placeholder { color: #5A4A7A; }
-label {
-  font-family: var(--font-sans);
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--color-text-primary);
-  display: block;
-  margin-bottom: 0.5rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
+/* ── Reduced motion ── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -225,10 +181,3 @@ label {
     scroll-behavior: auto !important;
   }
 }
-
-@media (forced-colors: active) {
-  .btn-primary, .btn-outline { border: 2px solid ButtonText; }
-}
-
-.section-py { padding-top: 5rem; padding-bottom: 5rem; }
-@media (min-width: 768px) { .section-py { padding-top: 7rem; padding-bottom: 7rem; } }
