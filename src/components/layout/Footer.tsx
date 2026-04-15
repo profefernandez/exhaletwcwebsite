@@ -3,70 +3,40 @@ import { Link } from 'react-router-dom';
 
 export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
-
   return (
-    <footer className="bg-gray-900 text-gray-300 py-10 mt-auto">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-          {/* Brand */}
+    <footer style={{ background: 'linear-gradient(135deg, #1C1C2E 0%, #2D1B4E 100%)' }} className="text-gray-300 pt-16 pb-8 mt-auto">
+      <div className="max-w-7xl mx-auto px-6 lg:px-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           <div>
-            <div className="flex items-center gap-2 mb-3">
-              <span className="text-xl">🌿</span>
-              <span className="text-white font-bold text-lg">Exhale TWC</span>
+            <div className="flex items-center gap-3 mb-4">
+              <span className="w-10 h-10 rounded-full flex items-center justify-center text-white text-sm font-semibold flex-shrink-0" style={{ background: 'linear-gradient(135deg, #7B2FBE 0%, #9B59D0 100%)' }} aria-hidden="true">E</span>
+              <span className="text-xl font-semibold text-white" style={{ fontFamily: 'var(--font-serif)' }}>Exhale TWC</span>
             </div>
-            <p className="text-sm text-gray-400">
-              Your journey to healing starts here.
-            </p>
+            <p className="text-sm text-gray-400 leading-relaxed max-w-xs">Holistic wellness therapy rooted in cultural affirmation, evidence-based care, and deep healing for Black and Brown communities.</p>
+            <span className="divider-gold mt-6" />
           </div>
-
-          {/* Quick Links */}
           <div>
-            <h3 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">
-              Quick Links
-            </h3>
-            <ul className="space-y-2 text-sm">
-              <li><Link to="/" className="hover:text-[#edd2ff] transition-colors">Home</Link></li>
-              <li><Link to="/about" className="hover:text-[#edd2ff] transition-colors">About</Link></li>
-              <li><Link to="/services" className="hover:text-[#edd2ff] transition-colors">Services</Link></li>
-              <li><Link to="/schedule" className="hover:text-[#edd2ff] transition-colors">Schedule a Consult</Link></li>
+            <h3 className="text-white font-semibold mb-5 text-xs uppercase tracking-widest">Navigate</h3>
+            <ul className="space-y-3 text-sm">
+              {[{label:'Home',path:'/'},{label:'About',path:'/about'},{label:'Services',path:'/services'},{label:'Book a Consultation',path:'/schedule'},{label:'Privacy Policy',path:'/privacy-policy'}].map((link) => (
+                <li key={link.path}><Link to={link.path} className="text-gray-400 hover:text-[#EDD2FF] transition-colors duration-200">{link.label}</Link></li>
+              ))}
             </ul>
           </div>
-
-          {/* Contact */}
           <div>
-            <h3 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">
-              Contact
-            </h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <a
-                  href="mailto:hello@exhaletwc.com"
-                  className="hover:text-[#edd2ff] transition-colors"
-                >
-                  hello@exhaletwc.com
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://exhaletwc.com"
-                  className="hover:text-[#edd2ff] transition-colors"
-                >
-                  exhaletwc.com
-                </a>
-              </li>
+            <h3 className="text-white font-semibold mb-5 text-xs uppercase tracking-widest">Connect</h3>
+            <ul className="space-y-3 text-sm">
+              <li><a href="mailto:hello@exhaletwc.com" className="text-gray-400 hover:text-[#EDD2FF] transition-colors duration-200">hello@exhaletwc.com</a></li>
+              <li><a href="https://exhaletwc.com" className="text-gray-400 hover:text-[#EDD2FF] transition-colors duration-200">exhaletwc.com</a></li>
             </ul>
+            <div className="mt-6 p-4 rounded-xl border border-white/10 bg-white/5">
+              <p className="text-xs text-gray-400 leading-relaxed"><span className="text-[#EDD2FF] font-medium">Confidential &amp; Secure.</span> All communications are protected. We are HIPAA-aware and committed to your privacy.</p>
+            </div>
           </div>
         </div>
-
-        <div className="border-t border-gray-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
-          <p className="text-gray-500">
-            &copy; {currentYear} Exhale TWC. All rights reserved.
-          </p>
-          <div className="flex gap-6">
-            <Link to="/privacy-policy" className="text-gray-400 hover:text-[#edd2ff] transition-colors">
-              Privacy Policy
-            </Link>
-          </div>
+        <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+          <p>&copy; {currentYear} Exhale TWC. All rights reserved.</p>
+          <p className="italic" style={{ fontFamily: 'var(--font-serif)', color: '#9B59D0', fontSize: '0.85rem' }}>&ldquo;Healing is not a luxury — it is a birthright.&rdquo;</p>
         </div>
       </div>
     </footer>
