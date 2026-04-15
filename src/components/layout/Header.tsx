@@ -26,15 +26,12 @@ export const Header: React.FC = () => {
     >
       <nav className="max-w-7xl mx-auto px-6 lg:px-10 h-20 flex items-center justify-between" aria-label="Main navigation">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-3" aria-label="Exhale TWC — Home">
-          <span
-            className="w-10 h-10 rounded-full flex items-center justify-center text-white text-sm font-semibold flex-shrink-0"
-            style={{ background: 'linear-gradient(135deg, #7B2FBE 0%, #9B59D0 100%)' }}
-            aria-hidden="true"
-          >E</span>
-          <span className="text-xl font-semibold tracking-tight" style={{ fontFamily: 'var(--font-serif)', color: '#1C1C2E' }}>
-            Exhale <span style={{ color: '#7B2FBE' }}>TWC</span>
-          </span>
+        <Link to="/" className="flex items-center" aria-label="Exhale TWC — Home">
+          <img
+            src="/images/logo_white.png"
+            alt="Exhale Therapy, Wellness & Consulting"
+            className="h-14 w-auto object-contain"
+          />
         </Link>
 
         {/* Desktop nav */}

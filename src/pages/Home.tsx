@@ -54,7 +54,7 @@ const testimonials = [
     detail: "Online Therapy Client",
   },
   {
-    quote: "The holistic approach here is unlike anything I've experienced. I leave every session feeling grounded and empowered.",
+    quote: "The holistic approach here is unlike anything I've experienced. I leave every session feeling centered and empowered.",
     name: "A.W.",
     detail: "Ongoing Wellness Client",
   },
@@ -71,9 +71,18 @@ export const Home: React.FC = () => {
       {/* ── HERO ── */}
       <section
         className="relative min-h-screen flex items-center justify-center overflow-hidden"
-        style={{ background: 'linear-gradient(150deg, #1C1C2E 0%, #2D1B4E 45%, #4A1A7A 100%)' }}
         aria-label="Welcome to Exhale TWC"
       >
+        {/* Hero background image */}
+        <img
+          src="/images/hero-bg.jpg"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        {/* Overlay */}
+        <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(150deg, rgba(28,28,46,0.82) 0%, rgba(45,27,78,0.78) 45%, rgba(74,26,122,0.72) 100%)' }} aria-hidden="true" />
+
         {/* Decorative orbs */}
         <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full opacity-20 blur-3xl pointer-events-none"
           style={{ background: 'radial-gradient(circle, #9B59D0, transparent)' }} aria-hidden="true" />
@@ -124,19 +133,17 @@ export const Home: React.FC = () => {
       <section className="py-24 bg-white" aria-label="About our approach">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            {/* Visual placeholder — therapist image area */}
+            {/* Therapist portrait */}
             <div className="relative order-2 lg:order-1">
               <div
-                className="w-full aspect-[4/5] rounded-3xl overflow-hidden flex items-end justify-center"
-                style={{ background: 'linear-gradient(160deg, #EDD2FF 0%, #9B59D0 60%, #4A1A7A 100%)' }}
+                className="w-full aspect-[4/5] rounded-3xl overflow-hidden"
                 aria-label="Therapist portrait"
               >
-                <div className="w-full h-3/4 flex items-center justify-center">
-                  <svg viewBox="0 0 200 280" fill="none" className="w-48 opacity-40" aria-hidden="true">
-                    <ellipse cx="100" cy="80" rx="45" ry="50" fill="white"/>
-                    <path d="M30 280 Q30 180 100 160 Q170 180 170 280Z" fill="white"/>
-                  </svg>
-                </div>
+                <img
+                  src="/images/therapist-headshot.png"
+                  alt="Exhale TWC therapist"
+                  className="w-full h-full object-cover object-top"
+                />
               </div>
               {/* Floating accent card */}
               <div
@@ -156,7 +163,7 @@ export const Home: React.FC = () => {
               </h2>
               <span className="divider-gold mb-6" />
               <p className="text-gray-600 leading-relaxed mb-5 text-base">
-                At Exhale TWC, we believe that healing is not a privilege — it is a birthright. Our practice was created as a sanctuary where Black and Brown individuals can arrive exactly as they are: complex, layered, and worthy of profound care.
+                At Exhale TWC, we believe that healing is not a privilege — it is a necessity. Our practice was created as a sanctuary where Black and Brown individuals can arrive exactly as they are: complex, layered, and worthy of profound care.
               </p>
               <p className="text-gray-600 leading-relaxed mb-8 text-base">
                 We draw from evidence-based modalities including Cognitive Behavioral Therapy, somatic approaches, and mindfulness practices — all delivered through a culturally affirming lens that honors your full humanity.
@@ -230,7 +237,7 @@ export const Home: React.FC = () => {
                 <svg className="w-8 h-8 opacity-40" style={{ color: '#7B2FBE' }} fill="currentColor" viewBox="0 0 32 32" aria-hidden="true">
                   <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z"/>
                 </svg>
-                <p className="text-gray-700 leading-relaxed italic text-base flex-1" style={{ fontFamily: 'var(--font-serif)' }}>
+                <p className="text-gray-700 leading-relaxed text-base flex-1" style={{ fontFamily: 'var(--font-serif)' }}>
                   &ldquo;{t.quote}&rdquo;
                 </p>
                 <div>
@@ -245,13 +252,19 @@ export const Home: React.FC = () => {
 
       {/* ── CTA ── */}
       <section
-        className="py-24"
-        style={{ background: 'linear-gradient(135deg, #4A1A7A 0%, #7B2FBE 50%, #9B59D0 100%)' }}
-        aria-label="Call to action"
+        className="relative py-28 overflow-hidden"
+        aria-label="Schedule a consultation"
       >
-        <div className="max-w-4xl mx-auto px-6 lg:px-10 text-center">
+        <img
+          src="/images/cta-bg.jpg"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(135deg, rgba(74,26,122,0.88) 0%, rgba(123,47,190,0.85) 50%, rgba(155,89,208,0.82) 100%)' }} aria-hidden="true" />
+        <div className="relative z-10 max-w-3xl mx-auto px-6 lg:px-10 text-center">
           <h2 className="text-4xl sm:text-5xl font-light text-white mb-6" style={{ fontFamily: 'var(--font-serif)' }}>
-            Your healing begins<br /><em className="text-[#EDD2FF]">with one conversation.</em>
+            Your healing begins<br /><em>with one conversation.</em>
           </h2>
           <p className="text-lg text-white/75 mb-10 max-w-xl mx-auto leading-relaxed">
             Schedule a complimentary 15-minute consultation. No pressure, no commitment — just a warm, confidential conversation.

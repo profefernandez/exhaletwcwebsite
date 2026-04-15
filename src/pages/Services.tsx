@@ -11,6 +11,7 @@ const services = [
       'Private, confidential sessions designed around your unique needs. Whether you are navigating anxiety, depression, grief, trauma, or life transitions, we create a space where your story is honored and your healing is prioritized.',
     highlights: ['50-minute weekly sessions', 'Personalized treatment planning', 'Ongoing progress review', 'Crisis support resources'],
     color: '#7B2FBE',
+    image: '/images/service-individual.jpg',
   },
   {
     number: '02',
@@ -20,6 +21,7 @@ const services = [
       'Access the same quality of care from the comfort and privacy of your own space. Our secure, HIPAA-aware telehealth sessions make it possible to prioritize your mental health without geographic or logistical barriers.',
     highlights: ['Secure video sessions', 'Flexible scheduling', 'Same evidence-based approach', 'Available across licensed states'],
     color: '#9B59D0',
+    image: '/images/service-online.jpg',
   },
   {
     number: '03',
@@ -29,6 +31,7 @@ const services = [
       'Trauma does not always announce itself. Our trauma-informed approach recognizes how past experiences live in the body and mind, and guides you gently toward integration, safety, and reclaimed wholeness.',
     highlights: ['Somatic awareness techniques', 'Nervous system regulation', 'Safe, paced processing', 'Culturally sensitive framework'],
     color: '#4A1A7A',
+    image: '/images/service-trauma.jpg',
   },
   {
     number: '04',
@@ -38,6 +41,7 @@ const services = [
       'Major life changes — career shifts, relationship changes, loss, identity exploration — can feel destabilizing. We help you move through transitions with intention, self-compassion, and a clear sense of your own values.',
     highlights: ['Identity and purpose work', 'Grief and loss processing', 'Relationship dynamics', 'Career and life direction'],
     color: '#8B6FD4',
+    image: '/images/service-transitions.jpg',
   },
 ];
 
@@ -89,36 +93,25 @@ export const Services: React.FC = () => {
 
       {/* ── SERVICES LIST ── */}
       <section className="py-24 bg-white" aria-label="Our services">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 flex flex-col gap-16">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 flex flex-col gap-20">
           {services.map((s, i) => (
             <div
               key={i}
-              className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${i % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}
+              className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
             >
-              {/* Visual block */}
-              <div className={`${i % 2 === 1 ? 'lg:order-2' : 'lg:order-1'}`}>
-                <div
-                  className="w-full aspect-video rounded-3xl flex items-center justify-center relative overflow-hidden"
-                  style={{ background: `linear-gradient(135deg, ${s.color}22 0%, ${s.color}44 100%)`, border: `1px solid ${s.color}33` }}
-                  aria-hidden="true"
-                >
-                  <span
-                    className="text-[120px] font-bold opacity-10 select-none"
-                    style={{ fontFamily: 'var(--font-serif)', color: s.color }}
-                  >{s.number}</span>
-                  <div
-                    className="absolute inset-0 flex items-center justify-center"
-                  >
-                    <div
-                      className="w-24 h-24 rounded-full flex items-center justify-center text-white text-2xl font-bold"
-                      style={{ background: `linear-gradient(135deg, ${s.color} 0%, ${s.color}99 100%)` }}
-                    >{s.number}</div>
-                  </div>
+              {/* Image block */}
+              <div className={i % 2 === 1 ? 'lg:order-2' : 'lg:order-1'}>
+                <div className="w-full aspect-video rounded-3xl overflow-hidden shadow-xl">
+                  <img
+                    src={s.image}
+                    alt={s.title}
+                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                  />
                 </div>
               </div>
 
               {/* Content */}
-              <div className={`${i % 2 === 1 ? 'lg:order-1' : 'lg:order-2'}`}>
+              <div className={i % 2 === 1 ? 'lg:order-1' : 'lg:order-2'}>
                 <span className="badge-pill mb-3">{s.subtitle}</span>
                 <h2 className="text-4xl font-light text-[#1C1C2E] mb-4" style={{ fontFamily: 'var(--font-serif)' }}>{s.title}</h2>
                 <span className="divider-gold mb-6" />
@@ -181,11 +174,17 @@ export const Services: React.FC = () => {
 
       {/* ── CTA ── */}
       <section
-        className="py-24"
-        style={{ background: 'linear-gradient(135deg, #4A1A7A 0%, #7B2FBE 50%, #9B59D0 100%)' }}
+        className="relative py-24 overflow-hidden"
         aria-label="Book a consultation"
       >
-        <div className="max-w-3xl mx-auto px-6 lg:px-10 text-center">
+        <img
+          src="/images/cta-bg.jpg"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(135deg, rgba(74,26,122,0.9) 0%, rgba(123,47,190,0.87) 50%, rgba(155,89,208,0.85) 100%)' }} aria-hidden="true" />
+        <div className="relative z-10 max-w-3xl mx-auto px-6 lg:px-10 text-center">
           <h2 className="text-4xl sm:text-5xl font-light text-white mb-6" style={{ fontFamily: 'var(--font-serif)' }}>
             Ready to begin?
           </h2>

@@ -17,7 +17,7 @@ const values = [
   },
   {
     title: 'Evidence-Based Practice',
-    description: 'Our work is grounded in clinical research and proven therapeutic modalities, adapted to fit your lived experience.',
+    description: 'Our work is anchored in clinical research and proven therapeutic modalities, thoughtfully adapted to fit your lived experience.',
   },
 ];
 
@@ -40,11 +40,12 @@ export const About: React.FC = () => {
 
       {/* ── PAGE HERO ── */}
       <section
-        className="pt-40 pb-24"
+        className="pt-40 pb-24 relative overflow-hidden"
         style={{ background: 'linear-gradient(150deg, #1C1C2E 0%, #2D1B4E 60%, #4A1A7A 100%)' }}
         aria-label="About page header"
       >
-        <div className="max-w-4xl mx-auto px-6 lg:px-10 text-center">
+        <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ backgroundImage: 'url(/images/therapist-headshot.png)', backgroundSize: 'cover', backgroundPosition: 'center top', filter: 'blur(40px)' }} aria-hidden="true" />
+        <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-10 text-center">
           <span className="badge-pill mb-6 inline-flex" style={{ background: 'rgba(201,168,76,0.12)', color: '#F0DFA0', borderColor: 'rgba(201,168,76,0.3)' }}>
             Our Story
           </span>
@@ -64,16 +65,14 @@ export const About: React.FC = () => {
             {/* Portrait */}
             <div className="relative">
               <div
-                className="w-full aspect-[4/5] rounded-3xl overflow-hidden flex items-end justify-center"
-                style={{ background: 'linear-gradient(160deg, #EDD2FF 0%, #9B59D0 60%, #4A1A7A 100%)' }}
+                className="w-full aspect-[4/5] rounded-3xl overflow-hidden"
                 aria-label="Therapist portrait"
               >
-                <div className="w-full h-3/4 flex items-center justify-center">
-                  <svg viewBox="0 0 200 280" fill="none" className="w-48 opacity-40" aria-hidden="true">
-                    <ellipse cx="100" cy="80" rx="45" ry="50" fill="white"/>
-                    <path d="M30 280 Q30 180 100 160 Q170 180 170 280Z" fill="white"/>
-                  </svg>
-                </div>
+                <img
+                  src="/images/therapist-headshot.png"
+                  alt="Exhale TWC therapist"
+                  className="w-full h-full object-cover object-top"
+                />
               </div>
               <div
                 className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-2xl p-5"
@@ -88,7 +87,7 @@ export const About: React.FC = () => {
             <div>
               <span className="badge-pill mb-4">Meet Your Therapist</span>
               <h2 className="text-4xl sm:text-5xl font-light mb-6 text-[#1C1C2E]" style={{ fontFamily: 'var(--font-serif)' }}>
-                Grounded in experience.<br /><em>Rooted in care.</em>
+                Shaped by experience.<br /><em>Driven by care.</em>
               </h2>
               <span className="divider-gold mb-6" />
               <p className="text-gray-600 leading-relaxed mb-5">
@@ -145,12 +144,28 @@ export const About: React.FC = () => {
         </div>
       </section>
 
+      {/* ── SANCTUARY IMAGE BREAK ── */}
+      <section className="relative h-80 overflow-hidden" aria-hidden="true">
+        <img
+          src="/images/about-sanctuary.jpg"
+          alt="Exhale TWC therapy sanctuary"
+          className="w-full h-full object-cover"
+          style={{ objectPosition: 'center 30%' }}
+        />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(28,28,46,0.3), rgba(28,28,46,0.6))' }} />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <p className="text-white text-2xl sm:text-3xl font-light text-center px-6" style={{ fontFamily: 'var(--font-serif)' }}>
+            "A space where your whole self is welcome."
+          </p>
+        </div>
+      </section>
+
       {/* ── MODALITIES ── */}
       <section className="py-24 bg-white" aria-label="Therapeutic modalities">
         <div className="max-w-5xl mx-auto px-6 lg:px-10 text-center">
           <span className="badge-pill mb-4">Our Approach</span>
           <h2 className="text-4xl sm:text-5xl font-light text-[#1C1C2E] mb-6" style={{ fontFamily: 'var(--font-serif)' }}>
-            Evidence-based. Culturally grounded.
+            Evidence-based. Culturally informed.
           </h2>
           <span className="divider-gold mx-auto mb-10" />
           <p className="text-gray-600 leading-relaxed mb-12 max-w-2xl mx-auto">
@@ -171,7 +186,7 @@ export const About: React.FC = () => {
               className="inline-flex items-center justify-center px-10 py-4 rounded-full text-base font-semibold text-white transition-all duration-200 hover:opacity-90 hover:shadow-xl"
               style={{ background: 'linear-gradient(135deg, #7B2FBE 0%, #9B59D0 100%)' }}
             >
-              Start Your Healing Journey
+              Start Your Wellness Journey
             </Link>
           </div>
         </div>

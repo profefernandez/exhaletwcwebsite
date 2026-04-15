@@ -9,10 +9,13 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <span className="w-10 h-10 rounded-full flex items-center justify-center text-white text-sm font-semibold flex-shrink-0" style={{ background: 'linear-gradient(135deg, #7B2FBE 0%, #9B59D0 100%)' }} aria-hidden="true">E</span>
-              <span className="text-xl font-semibold text-white" style={{ fontFamily: 'var(--font-serif)' }}>Exhale TWC</span>
+              <img
+                src="/images/logo_white.png"
+                alt="Exhale Therapy, Wellness & Consulting"
+                className="h-16 w-auto object-contain"
+              />
             </div>
-            <p className="text-sm text-gray-400 leading-relaxed max-w-xs">Holistic wellness therapy rooted in cultural affirmation, evidence-based care, and deep healing for Black and Brown communities.</p>
+            <p className="text-sm text-gray-400 leading-relaxed max-w-xs">Holistic wellness therapy built on cultural affirmation, evidence-based care, and deep healing for Black and Brown communities.</p>
             <span className="divider-gold mt-6" />
           </div>
           <div>
@@ -36,7 +39,7 @@ export const Footer: React.FC = () => {
         </div>
         <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
           <p>&copy; {currentYear} Exhale TWC. All rights reserved.</p>
-          <p className="italic" style={{ fontFamily: 'var(--font-serif)', color: '#9B59D0', fontSize: '0.85rem' }}>&ldquo;Healing is not a luxury — it is a birthright.&rdquo;</p>
+          <p className="italic" style={{ fontFamily: 'var(--font-serif)', color: '#9B59D0', fontSize: '0.85rem' }}>&ldquo;Healing is not a luxury — it is a necessity.&rdquo;</p>
         </div>
       </div>
     </footer>
