@@ -88,21 +88,6 @@ export const Services: React.FC = () => {
         </div>
       </section>
 
-      {/* ── BREATHE ARTWORK BANNER ── */}
-      <section className="relative overflow-hidden" aria-label="Breathe artwork">
-        <img
-          src="/images/breathe-art.jpg"
-          alt="Breathe — stylistic calligraphy artwork in gold on deep purple, representing the healing journey"
-          className="w-full object-cover"
-          style={{ maxHeight: '420px', objectPosition: 'center' }}
-        />
-        <div
-          className="absolute inset-0 flex flex-col items-center justify-end pb-10"
-          style={{ background: 'linear-gradient(to top, rgba(28,28,46,0.6) 0%, transparent 60%)' }}
-          aria-hidden="true"
-        />
-      </section>
-
       {/* ── SERVICES LIST ── */}
       <section className="py-24 bg-white" aria-label="Our services">
         <div className="max-w-7xl mx-auto px-6 lg:px-10 flex flex-col gap-20">
