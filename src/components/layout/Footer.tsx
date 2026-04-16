@@ -32,10 +32,11 @@ export const Footer: React.FC = () => {
             <h3 className="text-white font-semibold mb-5 text-xs uppercase tracking-widest">Navigate</h3>
             <ul className="space-y-3 list-none">
               {[
-                { label: 'Home',                path: '/' },
-                { label: 'About',               path: '/about' },
-                { label: 'Services',            path: '/services' },
-                { label: 'Book a Consultation', path: '/schedule' },
+                { label: 'Home',                    path: '/' },
+                { label: 'About',                   path: '/about' },
+                { label: 'Services',                path: '/services' },
+                { label: 'Book a Consultation',     path: '/schedule' },
+                { label: 'Good Faith Estimate',     path: '/good-faith-estimate' },
               ].map((link) => (
                 <li key={link.path}>
                   <Link
