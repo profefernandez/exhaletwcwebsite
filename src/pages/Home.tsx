@@ -127,11 +127,11 @@ export const Home: React.FC = () => {
                 />
               </div>
               <div
-                className="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-2xl p-5 max-w-[200px]"
+                className="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-2xl p-5 max-w-[220px]"
                 style={{ border: '1px solid #EDD2FF' }}
               >
-                <p className="text-3xl font-bold text-[#4A1A7A]" style={{ fontFamily: 'var(--font-serif)' }}>10+</p>
-                <p className="text-xs text-gray-500 mt-1 leading-snug">Years of clinical experience in culturally responsive care</p>
+                <p className="text-sm font-bold text-[#4A1A7A]" style={{ fontFamily: 'var(--font-serif)' }}>EMDR Trained</p>
+                <p className="text-xs text-gray-500 mt-1 leading-snug">Perinatal Mental Health · Trauma-Informed · CBT · ACT · DBT</p>
               </div>
             </div>
 
@@ -147,10 +147,10 @@ export const Home: React.FC = () => {
               </h2>
               <span className="divider-gold" />
               <p className="text-gray-600 leading-relaxed mb-4">
-                At Exhale TWC, we believe that healing is not a privilege — it is a necessity. Our practice was created as a sanctuary where Black and Brown individuals can arrive exactly as they are: complex, layered, and worthy of profound care.
+                At Exhale TWC, we believe that healing is a necessity. Our practice was created as a sanctuary where Black and Brown individuals can arrive exactly as they are: complex, layered, and worthy of profound care.
               </p>
               <p className="text-gray-600 leading-relaxed mb-7">
-                We draw from evidence-based modalities including Cognitive Behavioral Therapy, somatic approaches, and mindfulness practices — all delivered through a culturally affirming lens that honors your full humanity.
+                Drawing from EMDR, CBT, ACT, DBT, Mindfulness-Based Therapy, CPT, and specialized Perinatal Mental Health training — all delivered through a trauma-informed, culturally affirming lens that honors your full humanity.
               </p>
               <Link
                 to="/about"
