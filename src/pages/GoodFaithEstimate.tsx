@@ -7,25 +7,26 @@ export const GoodFaithEstimate: React.FC = () => {
     <>
       <Helmet>
         <title>Good Faith Estimate — Exhale TWC</title>
-        <meta name="description" content="Understand what your therapy sessions will cost before you begin. Exhale TWC provides a written cost estimate before your first appointment — no surprises." />
+        <meta name="description" content="Before your first session, you'll know exactly what it costs. No surprises, no hidden fees." />
       </Helmet>
 
       {/* ── HERO ── */}
       <section
-        className="relative min-h-[55vh] flex items-center justify-center overflow-hidden"
+        className="relative min-h-[50vh] flex items-center justify-center overflow-hidden"
         aria-labelledby="gfe-heading"
       >
         <img
           src="/images/hero-ocean.jpg"
-          alt="Calm ocean — representing clarity and peace of mind"
+          alt=""
+          aria-hidden="true"
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div
           className="absolute inset-0"
-          style={{ background: 'linear-gradient(150deg, rgba(28,10,58,0.90) 0%, rgba(45,27,78,0.86) 45%, rgba(74,26,122,0.80) 100%)' }}
+          style={{ background: 'linear-gradient(150deg, rgba(28,10,58,0.92) 0%, rgba(74,26,122,0.82) 100%)' }}
           aria-hidden="true"
         />
-        <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-10 pt-40 pb-24 text-center">
+        <div className="relative z-10 max-w-3xl mx-auto px-6 lg:px-10 pt-40 pb-20 text-center">
           <span
             className="badge-pill mb-6 inline-flex"
             style={{ background: 'rgba(201,168,76,0.12)', color: '#F0DFA0', borderColor: 'rgba(201,168,76,0.3)' }}
@@ -34,259 +35,170 @@ export const GoodFaithEstimate: React.FC = () => {
           </span>
           <h1
             id="gfe-heading"
-            className="text-5xl sm:text-6xl font-light text-white mb-6"
+            className="text-5xl sm:text-6xl font-light text-white mb-5"
             style={{ fontFamily: 'var(--font-serif)' }}
           >
             No surprises.<br />
             <em className="text-[#EDD2FF]">Just clarity.</em>
           </h1>
-          <p className="text-lg text-white/70 max-w-2xl mx-auto leading-relaxed">
-            Before your first session, you will receive a written estimate of what your care will cost. You decide if it works for you — no pressure, no obligation.
+          <p className="text-lg text-white/70 max-w-xl mx-auto leading-relaxed">
+            Before your first session, you will know exactly what it costs. That is it.
           </p>
         </div>
       </section>
 
-      {/* ── PLAIN LANGUAGE EXPLAINER ── */}
-      <section className="py-24 bg-white" aria-labelledby="what-is-it-heading">
-        <div className="max-w-4xl mx-auto px-6 lg:px-10">
-          <div className="text-center mb-14">
-            <span className="badge-pill mb-4">What Is This?</span>
+      {/* ── VISUAL EXAMPLE — first thing after hero ── */}
+      <section className="py-20 bg-white" aria-labelledby="example-heading">
+        <div className="max-w-3xl mx-auto px-6 lg:px-10">
+          <div className="text-center mb-10">
             <h2
-              id="what-is-it-heading"
-              className="text-4xl sm:text-5xl font-light text-[#1C1C2E] mb-5"
+              id="example-heading"
+              className="text-3xl sm:text-4xl font-light text-[#1C1C2E]"
               style={{ fontFamily: 'var(--font-serif)' }}
             >
-              Think of it as a<br />
-              <em style={{ color: '#7B2FBE' }}>price quote for your care.</em>
+              Here is what it means<br />
+              <em style={{ color: '#7B2FBE' }}>in real life.</em>
             </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed">
-              A Good Faith Estimate is simply a written document that tells you — in plain numbers — what your therapy sessions are expected to cost before you commit to anything. It is required by federal law, and we provide it to every new client.
-            </p>
           </div>
 
-          {/* Visual example — clear before/after */}
+          {/* The visual — two scenarios, side by side */}
           <div
             className="rounded-3xl overflow-hidden"
-            style={{ border: '1px solid #EDD2FF', boxShadow: '0 8px 40px rgba(74,26,122,0.08)' }}
-            aria-label="Visual example of how a Good Faith Estimate works"
+            style={{ border: '1px solid #EDD2FF', boxShadow: '0 8px 40px rgba(74,26,122,0.10)' }}
           >
-            {/* Header */}
+            {/* Label bar */}
             <div
-              className="px-8 py-5 text-center"
-              style={{ background: 'linear-gradient(135deg, #4A1A7A 0%, #7B2FBE 100%)' }}
+              className="px-8 py-4 text-center text-sm font-semibold tracking-widest uppercase"
+              style={{ background: 'linear-gradient(135deg, #4A1A7A 0%, #7B2FBE 100%)', color: 'rgba(255,255,255,0.85)' }}
             >
-              <p className="text-white font-semibold text-lg" style={{ fontFamily: 'var(--font-serif)' }}>
-                Here is what it looks like in practice
-              </p>
+              Before vs. After Your Estimate
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-[#EDD2FF]">
-              {/* Without GFE */}
-              <div className="p-8 text-center" style={{ background: '#FFF8F8' }}>
+            <div className="grid grid-cols-1 sm:grid-cols-2">
+              {/* Without estimate */}
+              <div
+                className="p-8 flex flex-col items-center text-center gap-4"
+                style={{ background: '#FFF5F5', borderRight: '1px solid #EDD2FF' }}
+              >
                 <div
-                  className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4"
+                  className="w-16 h-16 rounded-full flex items-center justify-center"
                   style={{ background: '#FEE2E2' }}
                   aria-hidden="true"
                 >
-                  <svg className="w-7 h-7 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+                  <svg className="w-8 h-8 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9.303 3.376c.866 1.5-.217 3.374-1.948 3.374H4.645c-1.73 0-2.813-1.874-1.948-3.374l5.304-9.168A2.25 2.25 0 0112 4.5c.9 0 1.718.478 2.165 1.26l5.304 9.168zM12 15.75h.008v.008H12v-.008z" />
                   </svg>
                 </div>
-                <p className="text-xs font-bold tracking-widest uppercase text-red-400 mb-3">Without an Estimate</p>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  You attend your first session and receive a bill for <strong className="text-red-500">$250</strong> — an amount you were not expecting and did not agree to.
+                <p className="text-xs font-bold tracking-widest uppercase text-red-400">Without an Estimate</p>
+                <p className="text-gray-600 leading-relaxed">
+                  You finish your first session and receive a bill for <strong className="text-red-500 text-lg">$250.</strong><br />
+                  You had no idea it would be that much.
                 </p>
               </div>
 
-              {/* Arrow / divider */}
-              <div className="flex items-center justify-center p-6" style={{ background: '#F7EEFF' }}>
-                <div className="text-center">
-                  <div
-                    className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-3"
-                    style={{ background: 'linear-gradient(135deg, #B8860B 0%, #C9A84C 100%)' }}
-                    aria-hidden="true"
-                  >
-                    <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25zM6.75 12h.008v.008H6.75V12zm0 3h.008v.008H6.75V15zm0 3h.008v.008H6.75V18z" />
-                    </svg>
-                  </div>
-                  <p className="text-xs font-bold tracking-widest uppercase text-[#4A1A7A]">Your Estimate</p>
-                  <p className="text-xs text-gray-500 mt-1 max-w-[140px] mx-auto">Sent to you in writing before your first appointment</p>
-                </div>
-              </div>
-
-              {/* With GFE */}
-              <div className="p-8 text-center" style={{ background: '#F0FFF4' }}>
+              {/* With estimate */}
+              <div
+                className="p-8 flex flex-col items-center text-center gap-4"
+                style={{ background: '#F0FFF6' }}
+              >
                 <div
-                  className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4"
+                  className="w-16 h-16 rounded-full flex items-center justify-center"
                   style={{ background: '#D1FAE5' }}
                   aria-hidden="true"
                 >
-                  <svg className="w-7 h-7 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <p className="text-xs font-bold tracking-widest uppercase text-green-600 mb-3">With Your Estimate</p>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  Before your first session, you know your rate is <strong className="text-green-700">$150 per session</strong>. You agree to it. Your bill matches exactly.
+                <p className="text-xs font-bold tracking-widest uppercase text-green-600">With Your Estimate</p>
+                <p className="text-gray-600 leading-relaxed">
+                  Before you ever walk in, you know your rate is <strong className="text-green-700 text-lg">$150 per session.</strong><br />
+                  Your bill matches. No surprises.
                 </p>
               </div>
             </div>
 
             {/* Bottom note */}
             <div
-              className="px-8 py-4 text-center text-sm text-gray-500"
-              style={{ background: '#F7EEFF', borderTop: '1px solid #EDD2FF' }}
+              className="px-8 py-4 text-center text-sm"
+              style={{ background: '#F7EEFF', color: '#4A1A7A', borderTop: '1px solid #EDD2FF' }}
             >
-              If your bill ever exceeds your estimate by <strong>$400 or more</strong>, you have the legal right to dispute it. No exceptions.
+              Federal law requires us to give you this estimate before your first appointment. It is your right.
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── WHAT'S INCLUDED ── */}
+      {/* ── WHAT TO EXPECT — dark brand section ── */}
       <section
-        className="py-24"
-        style={{ background: '#F7EEFF' }}
-        aria-labelledby="included-heading"
+        className="py-20"
+        style={{ background: 'linear-gradient(150deg, #1C0A3A 0%, #2D1B4E 60%, #4A1A7A 100%)' }}
+        aria-labelledby="expect-heading"
       >
-        <div className="max-w-5xl mx-auto px-6 lg:px-10">
-          <div className="text-center mb-14">
-            <span className="badge-pill mb-4">What You Receive</span>
+        <div className="max-w-4xl mx-auto px-6 lg:px-10">
+          <div className="text-center mb-12">
+            <span
+              className="badge-pill mb-5 inline-flex"
+              style={{ background: 'rgba(201,168,76,0.12)', color: '#F0DFA0', borderColor: 'rgba(201,168,76,0.3)' }}
+            >
+              Typical Costs in Texas
+            </span>
             <h2
-              id="included-heading"
-              className="text-4xl sm:text-5xl font-light text-[#1C1C2E]"
+              id="expect-heading"
+              className="text-4xl sm:text-5xl font-light text-white mb-4"
               style={{ fontFamily: 'var(--font-serif)' }}
             >
-              Your estimate includes<br />
-              <em style={{ color: '#7B2FBE' }}>all of this.</em>
+              What can I expect<br />
+              <em className="text-[#EDD2FF]">to pay?</em>
             </h2>
+            <p className="text-white/60 max-w-lg mx-auto">
+              These are typical ranges. Your personal estimate will reflect your exact plan.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {/* Simple cost bars */}
+          <div className="space-y-7">
             {[
-              {
-                title: 'Session rate',
-                body: 'The exact dollar amount you will be charged per session — before you ever walk in the door.',
-              },
-              {
-                title: 'Session length',
-                body: 'Whether your session is 45 or 50 minutes, the estimate specifies exactly what you are paying for.',
-              },
-              {
-                title: 'Projected annual cost',
-                body: 'An honest estimate of what a full year of care would cost at your agreed frequency — weekly, bi-weekly, or flexible.',
-              },
-              {
-                title: 'Your right to ask questions',
-                body: 'You can ask for clarification on any line item, negotiate, or walk away — at any point, with no penalty.',
-              },
-            ].map((item, i) => (
-              <div
-                key={i}
-                className="bg-white rounded-3xl p-7 card-hover"
-                style={{ border: '1px solid #EDD2FF', boxShadow: '0 4px 24px rgba(123,47,190,0.06)' }}
-              >
-                <div className="flex items-start gap-4">
-                  <span
-                    className="w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center mt-0.5"
-                    style={{ background: 'linear-gradient(135deg, #4A1A7A 0%, #7B2FBE 100%)' }}
-                    aria-hidden="true"
-                  >
-                    <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                  </span>
+              { label: 'Every other week', sub: '~26 sessions / year', low: 3900, high: 4550 },
+              { label: 'Once a week', sub: '~52 sessions / year', low: 7800, high: 9100 },
+              { label: 'As needed', sub: '~1–2 times / month', low: 1800, high: 3600 },
+            ].map((row, i) => (
+              <div key={i}>
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-2">
                   <div>
-                    <h3 className="font-semibold text-[#1C1C2E] mb-1" style={{ fontFamily: 'var(--font-serif)' }}>{item.title}</h3>
-                    <p className="text-sm text-gray-600 leading-relaxed">{item.body}</p>
+                    <span className="text-white font-semibold">{row.label}</span>
+                    <span className="text-white/40 text-sm ml-2">({row.sub})</span>
                   </div>
+                  <span className="font-bold text-[#EDD2FF]">
+                    ${row.low.toLocaleString()} – ${row.high.toLocaleString()} / year
+                  </span>
+                </div>
+                <div
+                  className="h-2.5 rounded-full overflow-hidden"
+                  style={{ background: 'rgba(255,255,255,0.08)' }}
+                  role="img"
+                  aria-label={`${row.label}: $${row.low.toLocaleString()} to $${row.high.toLocaleString()} per year`}
+                >
+                  <div
+                    className="h-full rounded-full"
+                    style={{
+                      width: `${Math.round((row.high / 10000) * 100)}%`,
+                      background: 'linear-gradient(90deg, rgba(155,89,208,0.5), #9B59D0)',
+                    }}
+                    aria-hidden="true"
+                  />
                 </div>
               </div>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* ── TYPICAL COST RANGES — dark section ── */}
-      <section
-        className="py-24"
-        style={{ background: 'linear-gradient(150deg, #1C1C2E 0%, #2D1B4E 60%, #4A1A7A 100%)' }}
-        aria-labelledby="cost-heading"
-      >
-        <div className="max-w-4xl mx-auto px-6 lg:px-10">
-          <div className="text-center mb-14">
-            <span
-              className="badge-pill mb-6 inline-flex"
-              style={{ background: 'rgba(201,168,76,0.12)', color: '#F0DFA0', borderColor: 'rgba(201,168,76,0.3)' }}
-            >
-              Typical Costs
-            </span>
-            <h2
-              id="cost-heading"
-              className="text-4xl sm:text-5xl font-light text-white mb-4"
-              style={{ fontFamily: 'var(--font-serif)' }}
-            >
-              What does care cost<br />
-              <em className="text-[#EDD2FF]">over a year?</em>
-            </h2>
-            <p className="text-white/60 max-w-lg mx-auto leading-relaxed">
-              These are typical ranges based on how often you attend. Your personalized estimate will reflect your specific plan.
-            </p>
-          </div>
-
-          <div className="space-y-8">
-            {[
-              { label: 'Bi-weekly sessions', detail: '~26 sessions / year', low: 3900, high: 4550, color: '#9B59D0' },
-              { label: 'Weekly sessions', detail: '~52 sessions / year', low: 7800, high: 9100, color: '#7B2FBE' },
-              { label: 'Flexible schedule', detail: '~39 sessions / year', low: 5850, high: 6825, color: '#C9A84C' },
-            ].map((row, i) => {
-              const maxVal = 10000;
-              const lowPct = Math.round((row.low / maxVal) * 100);
-              const highPct = Math.round((row.high / maxVal) * 100);
-              return (
-                <div key={i}>
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-3">
-                    <div>
-                      <span className="text-white font-semibold">{row.label}</span>
-                      <span className="text-white/40 text-sm ml-2">({row.detail})</span>
-                    </div>
-                    <span className="font-bold" style={{ color: row.color === '#C9A84C' ? '#F0DFA0' : '#EDD2FF' }}>
-                      ${row.low.toLocaleString()} – ${row.high.toLocaleString()}
-                    </span>
-                  </div>
-                  <div
-                    className="relative h-3 rounded-full overflow-hidden"
-                    style={{ background: 'rgba(255,255,255,0.08)' }}
-                    role="img"
-                    aria-label={`${row.label}: $${row.low.toLocaleString()} to $${row.high.toLocaleString()} per year`}
-                  >
-                    <div
-                      className="absolute top-0 h-full rounded-full opacity-25"
-                      style={{ left: `${lowPct}%`, width: `${highPct - lowPct}%`, background: row.color }}
-                      aria-hidden="true"
-                    />
-                    <div
-                      className="absolute top-0 left-0 h-full rounded-full"
-                      style={{ width: `${lowPct}%`, background: `linear-gradient(90deg, ${row.color}99, ${row.color})` }}
-                      aria-hidden="true"
-                    />
-                  </div>
-                  <div className="flex justify-between text-xs mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>
-                    <span>$0</span><span>$5,000</span><span>$10,000</span>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Sliding scale note */}
+          {/* Sliding scale */}
           <div
-            className="mt-12 rounded-2xl p-6 flex items-start gap-4"
+            className="mt-10 rounded-2xl p-6 flex items-start gap-4"
             style={{ background: 'rgba(201,168,76,0.10)', border: '1px solid rgba(201,168,76,0.25)' }}
           >
             <div
-              className="w-10 h-10 rounded-xl flex-shrink-0 flex items-center justify-center"
+              className="w-10 h-10 rounded-xl flex-shrink-0 flex items-center justify-center mt-0.5"
               style={{ background: 'linear-gradient(135deg, #B8860B 0%, #C9A84C 100%)' }}
               aria-hidden="true"
             >
@@ -295,38 +207,69 @@ export const GoodFaithEstimate: React.FC = () => {
               </svg>
             </div>
             <div>
-              <p className="font-semibold text-white mb-1" style={{ fontFamily: 'var(--font-serif)' }}>Sliding Scale Available</p>
+              <p className="font-semibold text-white mb-1" style={{ fontFamily: 'var(--font-serif)' }}>
+                Sliding scale available
+              </p>
               <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.65)' }}>
-                A limited number of reduced-rate slots are available for clients who need them. Bring it up during your free consultation — no paperwork, no judgment.
+                A limited number of reduced-rate slots are available. Just mention it during your free consultation — no paperwork, no judgment.
               </p>
             </div>
           </div>
+        </div>
+      </section>
 
-          <p className="text-center text-xs mt-8" style={{ color: 'rgba(255,255,255,0.3)' }}>
-            Estimates only. Your written estimate will reflect your individual plan before your first session.
-          </p>
+      {/* ── YOUR RIGHTS — lavender section ── */}
+      <section className="py-20" style={{ background: '#F7EEFF' }} aria-labelledby="rights-heading">
+        <div className="max-w-4xl mx-auto px-6 lg:px-10">
+          <div className="text-center mb-10">
+            <span className="badge-pill mb-4">Your Rights</span>
+            <h2
+              id="rights-heading"
+              className="text-3xl sm:text-4xl font-light text-[#1C1C2E]"
+              style={{ fontFamily: 'var(--font-serif)' }}
+            >
+              You are always in control.
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+            {[
+              { icon: '📄', title: 'Written before you start', body: 'You receive your estimate in writing before your first session — not after.' },
+              { icon: '💬', title: 'Ask anything', body: 'You can ask questions, negotiate, or walk away at any point. No penalty, ever.' },
+              { icon: '⚖️', title: 'Dispute if needed', body: 'If your final bill is $400 or more over your estimate, you have the legal right to dispute it.' },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="bg-white rounded-2xl p-6 text-center card-hover"
+                style={{ border: '1px solid #EDD2FF', boxShadow: '0 4px 20px rgba(74,26,122,0.06)' }}
+              >
+                <div className="text-3xl mb-3" aria-hidden="true">{item.icon}</div>
+                <h3 className="font-semibold text-[#1C1C2E] mb-2" style={{ fontFamily: 'var(--font-serif)' }}>{item.title}</h3>
+                <p className="text-sm text-gray-600 leading-relaxed">{item.body}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* ── CTA ── */}
       <section
-        className="py-24"
+        className="py-20"
         style={{ background: 'linear-gradient(135deg, #4A1A7A 0%, #7B2FBE 50%, #9B59D0 100%)' }}
-        aria-label="Get your estimate"
+        aria-label="Schedule a consultation"
       >
-        <div className="max-w-3xl mx-auto px-6 lg:px-10 text-center">
+        <div className="max-w-2xl mx-auto px-6 lg:px-10 text-center">
           <h2
-            className="text-4xl sm:text-5xl font-light text-white mb-6"
+            className="text-4xl sm:text-5xl font-light text-white mb-5"
             style={{ fontFamily: 'var(--font-serif)' }}
           >
-            Ready to see your<br />
-            <em className="text-[#EDD2FF]">personalized estimate?</em>
+            Ready to get<br />
+            <em className="text-[#EDD2FF]">your estimate?</em>
           </h2>
-          <p className="text-lg text-white/70 mb-10 max-w-xl mx-auto leading-relaxed">
-            Schedule a free 15-minute consultation. Your written estimate will be sent before your first session — so you can make a fully informed decision.
+          <p className="text-lg text-white/70 mb-8 leading-relaxed">
+            Schedule a free 15-minute consultation. Your written estimate will be sent before your first session.
           </p>
           <Link to="/schedule" className="btn-primary">
-            Request My Estimate
+            Schedule My Free Consultation
           </Link>
         </div>
       </section>
