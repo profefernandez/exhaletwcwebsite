@@ -1,300 +1,192 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { useContactForm } from '../hooks/useContactForm';
 
-const steps = [
-  { step: '01', title: 'Submit Your Request', desc: 'Fill out the form with a few details about what brings you here.' },
-  { step: '02', title: 'Receive a Response', desc: 'We will reach out within 24 business hours to schedule your consultation.' },
-  { step: '03', title: 'Free 15-Min Consult', desc: 'A warm, confidential conversation to see if we are the right fit for you.' },
-  { step: '04', title: 'Begin Your Journey', desc: 'If it feels right, we schedule your first full session and get started.' },
+const BOOKING_URL = 'https://calendly.com/exhaletwc/free-15-minute-consultation?month=2026-04';
+const CONTACT_EMAIL = 'tamara@exhaletwc.com';
+const CONTACT_PHONE_DISPLAY = '(281) 884-3865';
+const CONTACT_PHONE_TEL = '+12818843865';
+
+const faqs = [
+  {
+    q: 'What happens in a 15-minute consultation?',
+    a: 'A relaxed conversation. You share what brought you here, I share how I work, and we see if it feels like a fit. There is no pressure and no commitment — this call is completely free.',
+  },
+  {
+    q: 'Do you accept insurance?',
+    a: 'Exhale TWC is a private-pay practice. A superbill can be provided for out-of-network reimbursement through your insurance. See the Good Faith Estimate page for fee details.',
+  },
+  {
+    q: 'Is therapy confidential?',
+    a: 'Yes. Your privacy is protected under HIPAA. Limited exceptions (safety concerns, court orders) are reviewed with you before therapy begins.',
+  },
+  {
+    q: 'How long is each session?',
+    a: 'Individual sessions are 50 minutes. Extended sessions are available by request for EMDR intensives and specialized work.',
+  },
 ];
 
-export const Schedule: React.FC = () => {
-  const { formData, isSubmitting, isSuccess, handleChange, handleSubmit } = useContactForm();
-
+const Schedule: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Book a Consultation — Exhale TWC</title>
-        <meta name="description" content="Schedule a free 15-minute consultation with Exhale TWC. Begin your holistic wellness journey today." />
+        <title>Schedule a Consultation | Exhale Therapy, Wellness & Consulting</title>
+        <meta
+          name="description"
+          content="Book your free 15-minute consultation with Exhale TWC. Warm, confidential, and culturally affirming therapy in Texas."
+        />
       </Helmet>
 
-      {/* ── HERO ── */}
-      <section
-        className="relative pt-40 pb-24 overflow-hidden"
-        aria-labelledby="schedule-hero-heading"
-        style={{ background: 'linear-gradient(150deg, #1C0A3A 0%, #2D1B4E 60%, #4A1A7A 100%)' }}
-      >
-        <img
-          src="/images/ocean-calm.jpg"
-          alt=""
-          aria-hidden="true"
-          className="absolute inset-0 w-full h-full object-cover opacity-20"
-        />
-        <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-10 text-center">
-          <span
-            className="badge-pill mb-6 inline-flex"
-            style={{ background: 'rgba(201,168,76,0.15)', color: '#F0DFA0', borderColor: 'rgba(201,168,76,0.4)' }}
-          >
-            Begin Your Journey
-          </span>
-          <h1
-            id="schedule-hero-heading"
-            className="text-5xl sm:text-6xl font-light text-white mb-6"
-            style={{ fontFamily: 'var(--font-serif)' }}
-          >
-            Book a free<br /><em style={{ color: '#EDD2FF' }}>consultation.</em>
-          </h1>
-          <p className="text-lg text-white/75 max-w-xl mx-auto leading-relaxed">
-            A 15-minute, no-obligation conversation to explore whether Exhale TWC is the right fit for your healing journey.
-          </p>
-        </div>
-      </section>
+      <div className="pt-[120px]">
+        {/* HERO */}
+        <section
+          className="relative overflow-hidden text-white"
+          style={{
+            background: 'linear-gradient(160deg, #1C0A3A 0%, #2D1B4E 50%, #4A1A7A 100%)',
+          }}
+        >
+          <img
+            src="/images/hero-ocean.jpg"
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 w-full h-full object-cover opacity-25"
+          />
+          <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 70% 65% at 50% 42%, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.1) 65%, rgba(0,0,0,0) 85%)' }} />
+          <div className="relative max-w-3xl mx-auto px-6 lg:px-10 py-24 text-center">
+            <span className="inline-block text-xs font-bold uppercase tracking-[0.14em] px-4 py-1.5 rounded-full border border-[#FFE9A8]/45 bg-[#F0DFA0]/15 text-[#FFE9A8] mb-6">
+              Begin Your Journey
+            </span>
+            <h1 className="font-serif text-5xl md:text-6xl font-bold leading-[1.02] tracking-tight mb-5" style={{ textShadow: '0 2px 6px rgba(0,0,0,0.85), 0 6px 28px rgba(0,0,0,0.75)' }}>
+              Your healing begins with <em className="text-[#FFE9A8] font-medium">one conversation.</em>
+            </h1>
+            <p className="text-lg md:text-xl text-[#E6D8F5] max-w-2xl mx-auto">
+              A warm, confidential 15-minute consultation. No pressure, no commitment.
+            </p>
+          </div>
+        </section>
 
-      {/* ── FORM + INFO ── */}
-      <section className="py-24 bg-white" aria-labelledby="form-section-heading">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 items-start">
-
-            {/* Side info */}
-            <div className="lg:col-span-2">
-              <span className="badge-pill mb-4">What to Expect</span>
-              <h2
-                id="form-section-heading"
-                className="text-3xl sm:text-4xl font-light text-[#1C1C2E] mb-5"
-                style={{ fontFamily: 'var(--font-serif)' }}
-              >
-                Your first step<br /><em>toward healing.</em>
+        {/* BOOKING CTA */}
+        <section className="py-24 bg-white">
+          <div className="max-w-3xl mx-auto px-6 lg:px-10 text-center">
+            <div
+              className="rounded-3xl p-10 md:p-14"
+              style={{
+                background: 'linear-gradient(135deg, #F7EEFF 0%, #ffffff 100%)',
+                border: '1px solid rgba(123,47,190,0.12)',
+                boxShadow: '0 22px 60px rgba(74,26,122,0.1)',
+              }}
+            >
+              <h2 className="font-serif text-3xl md:text-4xl text-[#1C1C2E] mb-4">
+                Book your <em className="text-[#4A1A7A] font-medium">free 15-minute consultation</em>
               </h2>
-              <span className="divider-gold" />
-              <ol className="flex flex-col gap-6 mt-2 list-none">
-                {steps.map((item) => (
-                  <li key={item.step} className="flex items-start gap-4">
-                    <span
-                      className="w-9 h-9 rounded-full flex-shrink-0 flex items-center justify-center text-white text-xs font-bold"
-                      style={{ background: 'linear-gradient(135deg, #4A1A7A 0%, #7B2FBE 100%)' }}
-                      aria-hidden="true"
-                    >
-                      {item.step}
-                    </span>
-                    <div>
-                      <p className="text-sm font-bold text-[#1C1C2E]">{item.title}</p>
-                      <p className="text-xs text-gray-500 mt-0.5 leading-relaxed">{item.desc}</p>
-                    </div>
-                  </li>
-                ))}
-              </ol>
-
-              <div
-                className="mt-8 p-5 rounded-2xl"
-                style={{ background: '#F7EEFF', border: '1px solid #EDD2FF' }}
-                role="note"
+              <p className="text-[#3D3D5C] text-lg mb-8 max-w-xl mx-auto">
+                Choose a time that works for you. You'll receive a confirmation email with everything you need before we meet.
+              </p>
+              <a
+                href={BOOKING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-base font-bold no-underline transition-all hover:-translate-y-0.5 hover:shadow-xl"
+                style={{
+                  background: 'linear-gradient(135deg, #B8860B 0%, #C9A84C 100%)',
+                  color: '#1C1C2E',
+                  boxShadow: '0 6px 18px rgba(184,134,11,0.25)',
+                }}
               >
-                <p className="text-sm text-[#3D3D5C] leading-relaxed">
-                  <span className="font-semibold text-[#4A1A7A]">Confidential &amp; Secure.</span>{' '}
-                  All information shared is strictly private. We are HIPAA-aware and committed to protecting your privacy.
-                </p>
-              </div>
-            </div>
-
-            {/* Form */}
-            <div className="lg:col-span-3">
-              {isSuccess ? (
-                <div
-                  className="rounded-3xl p-12 text-center"
-                  style={{ background: '#F7EEFF', border: '1px solid #EDD2FF' }}
-                  role="alert"
-                  aria-live="polite"
-                >
-                  <div
-                    className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6"
-                    style={{ background: 'linear-gradient(135deg, #4A1A7A 0%, #7B2FBE 100%)' }}
-                    aria-hidden="true"
-                  >
-                    <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <h2 className="text-3xl font-light text-[#1C1C2E] mb-4" style={{ fontFamily: 'var(--font-serif)' }}>
-                    Message received.
-                  </h2>
-                  <p className="text-gray-600 mb-8 leading-relaxed">
-                    Thank you for reaching out. We will be in touch within 24 business hours to schedule your complimentary consultation.
-                  </p>
-                  <Link to="/" className="btn-primary">Return Home</Link>
-                </div>
-              ) : (
-                <form
-                  onSubmit={handleSubmit}
-                  noValidate
-                  className="rounded-3xl p-8 lg:p-10"
-                  style={{ background: '#FAFAFA', border: '1px solid #EDD2FF' }}
-                  aria-label="Consultation request form"
-                >
-                  <h2 className="text-2xl font-medium text-[#1C1C2E] mb-7" style={{ fontFamily: 'var(--font-serif)' }}>
-                    Request a Consultation
-                  </h2>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
-                    <div>
-                      <label
-                        htmlFor="firstName"
-                        className="block text-xs font-semibold text-[#3D3D5C] uppercase tracking-wider mb-2"
-                        style={{ fontFamily: 'var(--font-sans)' }}
-                      >
-                        First Name <span className="text-[#7B2FBE]" aria-label="required">*</span>
-                      </label>
-                      <input
-                        type="text" id="firstName" name="firstName"
-                        value={formData.firstName} onChange={handleChange}
-                        required autoComplete="given-name" placeholder="First name"
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white focus:border-[#7B2FBE] focus:ring-2 focus:ring-[#7B2FBE]/20 outline-none transition-colors text-[#1C1C2E] placeholder-gray-400 text-sm"
-                        aria-required="true"
-                        style={{ fontFamily: 'var(--font-sans)', fontSize: '0.875rem', textTransform: 'none', letterSpacing: 'normal' }}
-                      />
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="lastName"
-                        className="block text-xs font-semibold text-[#3D3D5C] uppercase tracking-wider mb-2"
-                        style={{ fontFamily: 'var(--font-sans)' }}
-                      >
-                        Last Name <span className="text-[#7B2FBE]" aria-label="required">*</span>
-                      </label>
-                      <input
-                        type="text" id="lastName" name="lastName"
-                        value={formData.lastName} onChange={handleChange}
-                        required autoComplete="family-name" placeholder="Last name"
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white focus:border-[#7B2FBE] focus:ring-2 focus:ring-[#7B2FBE]/20 outline-none transition-colors text-[#1C1C2E] placeholder-gray-400 text-sm"
-                        aria-required="true"
-                        style={{ fontFamily: 'var(--font-sans)', fontSize: '0.875rem', textTransform: 'none', letterSpacing: 'normal' }}
-                      />
-                    </div>
-                  </div>
-
-                  <div className="mb-5">
-                    <label
-                      htmlFor="email"
-                      className="block text-xs font-semibold text-[#3D3D5C] uppercase tracking-wider mb-2"
-                      style={{ fontFamily: 'var(--font-sans)' }}
-                    >
-                      Email Address <span className="text-[#7B2FBE]" aria-label="required">*</span>
-                    </label>
-                    <input
-                      type="email" id="email" name="email"
-                      value={formData.email} onChange={handleChange}
-                      required autoComplete="email" placeholder="your@email.com"
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white focus:border-[#7B2FBE] focus:ring-2 focus:ring-[#7B2FBE]/20 outline-none transition-colors text-[#1C1C2E] placeholder-gray-400 text-sm"
-                      aria-required="true"
-                      style={{ fontFamily: 'var(--font-sans)', fontSize: '0.875rem', textTransform: 'none', letterSpacing: 'normal' }}
-                    />
-                  </div>
-
-                  <div className="mb-5">
-                    <label
-                      htmlFor="phone"
-                      className="block text-xs font-semibold text-[#3D3D5C] uppercase tracking-wider mb-2"
-                      style={{ fontFamily: 'var(--font-sans)' }}
-                    >
-                      Phone <span className="text-gray-400 text-xs normal-case tracking-normal font-normal">(optional)</span>
-                    </label>
-                    <input
-                      type="tel" id="phone" name="phone"
-                      value={formData.phone} onChange={handleChange}
-                      autoComplete="tel" placeholder="(555) 123-4567"
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white focus:border-[#7B2FBE] focus:ring-2 focus:ring-[#7B2FBE]/20 outline-none transition-colors text-[#1C1C2E] placeholder-gray-400 text-sm"
-                      style={{ fontFamily: 'var(--font-sans)', fontSize: '0.875rem', textTransform: 'none', letterSpacing: 'normal' }}
-                    />
-                  </div>
-
-                  <div className="mb-5">
-                    <label
-                      htmlFor="serviceType"
-                      className="block text-xs font-semibold text-[#3D3D5C] uppercase tracking-wider mb-2"
-                      style={{ fontFamily: 'var(--font-sans)' }}
-                    >
-                      Service Interest
-                    </label>
-                    <select
-                      id="serviceType" name="serviceType"
-                      value={formData.serviceType} onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white focus:border-[#7B2FBE] focus:ring-2 focus:ring-[#7B2FBE]/20 outline-none transition-colors text-[#1C1C2E] text-sm"
-                      style={{ fontFamily: 'var(--font-sans)', fontSize: '0.875rem', textTransform: 'none', letterSpacing: 'normal' }}
-                    >
-                      <option value="">Select a service...</option>
-                      <option value="individual">Individual Therapy</option>
-                      <option value="online">Online Therapy</option>
-                      <option value="trauma">Trauma-Informed Care</option>
-                      <option value="transitions">Life Transitions Support</option>
-                      <option value="other">Other / Not Sure</option>
-                    </select>
-                  </div>
-
-                  <div className="mb-7">
-                    <label
-                      htmlFor="message"
-                      className="block text-xs font-semibold text-[#3D3D5C] uppercase tracking-wider mb-2"
-                      style={{ fontFamily: 'var(--font-sans)' }}
-                    >
-                      What brings you here? <span className="text-[#7B2FBE]" aria-label="required">*</span>
-                    </label>
-                    <textarea
-                      id="message" name="message"
-                      value={formData.message} onChange={handleChange}
-                      required rows={5}
-                      placeholder="Share a little about what you are looking for in therapy..."
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white focus:border-[#7B2FBE] focus:ring-2 focus:ring-[#7B2FBE]/20 outline-none transition-colors text-[#1C1C2E] placeholder-gray-400 resize-y text-sm"
-                      aria-required="true"
-                      style={{ fontFamily: 'var(--font-sans)', fontSize: '0.875rem', textTransform: 'none', letterSpacing: 'normal' }}
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    aria-busy={isSubmitting}
-                    className="w-full py-4 rounded-full text-base font-bold text-white transition-all duration-200 hover:opacity-90 hover:shadow-xl disabled:opacity-60 disabled:cursor-not-allowed"
-                    style={{ background: 'linear-gradient(135deg, #4A1A7A 0%, #7B2FBE 100%)' }}
-                  >
-                    {isSubmitting ? 'Sending...' : 'Send My Request'}
-                  </button>
-
-                  <p className="text-xs text-gray-400 mt-4 text-center leading-relaxed">
-                    By submitting, you agree to our{' '}
-                    <Link to="/privacy-policy" className="text-[#7B2FBE] underline hover:text-[#9B59D0]">Privacy Policy</Link>.
-                    All information is kept strictly confidential.
-                  </p>
-                </form>
-              )}
+                Open Booking Calendar <span aria-hidden="true">→</span>
+              </a>
+              <p className="mt-5 text-sm text-[#6B7280]">
+                Prefer to reach out first? Contact options below.
+              </p>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* ── CONTACT INFO ── */}
-      <section className="py-16" style={{ background: '#F7EEFF' }} aria-labelledby="contact-info-heading">
-        <div className="max-w-4xl mx-auto px-6 lg:px-10 text-center">
-          <h2
-            id="contact-info-heading"
-            className="text-3xl font-light text-[#1C1C2E] mb-3"
-            style={{ fontFamily: 'var(--font-serif)' }}
-          >
-            Prefer to reach out directly?
-          </h2>
-          <p className="text-gray-600 mb-6">We welcome your questions and are happy to connect.</p>
-          <a
-            href="mailto:hello@exhaletwc.com"
-            className="inline-flex items-center gap-2 text-base font-bold text-[#4A1A7A] hover:underline no-underline"
-            aria-label="Email Exhale TWC"
-          >
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-            </svg>
-            hello@exhaletwc.com
-          </a>
-        </div>
-      </section>
+        {/* CONTACT FALLBACKS */}
+        <section className="py-16" style={{ background: '#F7EEFF' }}>
+          <div className="max-w-3xl mx-auto px-6 lg:px-10">
+            <div className="text-center mb-10">
+              <span className="inline-block text-xs font-bold uppercase tracking-[0.14em] px-4 py-1.5 rounded-full bg-[#EDD2FF] text-[#4A1A7A] mb-4">
+                Other ways to connect
+              </span>
+              <h2 className="font-serif text-3xl md:text-4xl text-[#1C1C2E]">
+                Get in touch directly
+              </h2>
+            </div>
+            <div className="grid md:grid-cols-2 gap-4 max-w-xl mx-auto">
+              <a
+                href={`mailto:${CONTACT_EMAIL}`}
+                className="flex items-center gap-3 p-5 rounded-xl bg-white border border-[#EDD2FF] no-underline text-[#1C1C2E] hover:-translate-y-0.5 hover:shadow-lg transition-all"
+              >
+                <span className="w-10 h-10 rounded-full bg-[#F7EEFF] grid place-items-center text-[#4A1A7A] flex-shrink-0">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="3" y="5" width="18" height="14" rx="2" />
+                    <path d="m3 7 9 6 9-6" />
+                  </svg>
+                </span>
+                <div className="flex-1 min-w-0">
+                  <div className="text-xs text-[#6B7280] mb-0.5">Email</div>
+                  <div className="font-semibold text-sm truncate">{CONTACT_EMAIL}</div>
+                </div>
+              </a>
+              <a
+                href={`tel:${CONTACT_PHONE_TEL}`}
+                className="flex items-center gap-3 p-5 rounded-xl bg-white border border-[#EDD2FF] no-underline text-[#1C1C2E] hover:-translate-y-0.5 hover:shadow-lg transition-all"
+              >
+                <span className="w-10 h-10 rounded-full bg-[#F7EEFF] grid place-items-center text-[#4A1A7A] flex-shrink-0">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                  </svg>
+                </span>
+                <div className="flex-1 min-w-0">
+                  <div className="text-xs text-[#6B7280] mb-0.5">Phone</div>
+                  <div className="font-semibold text-sm">{CONTACT_PHONE_DISPLAY}</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="py-24 bg-white">
+          <div className="max-w-3xl mx-auto px-6 lg:px-10">
+            <div className="text-center mb-12">
+              <span className="inline-block text-xs font-bold uppercase tracking-[0.14em] px-4 py-1.5 rounded-full bg-[#F7EEFF] text-[#4A1A7A] mb-4">
+                Frequently Asked
+              </span>
+              <h2 className="font-serif text-3xl md:text-4xl text-[#1C1C2E]">
+                What you might be wondering
+              </h2>
+              <span className="block mx-auto mt-5 w-12 h-[3px] rounded-full" style={{ background: 'linear-gradient(90deg, #B8860B, #C9A84C)' }} />
+            </div>
+            <div className="space-y-4">
+              {faqs.map((f, i) => (
+                <details
+                  key={i}
+                  className="group p-5 rounded-xl bg-white border border-[#EDD2FF] hover:border-[#C9A84C] transition-colors"
+                >
+                  <summary className="cursor-pointer font-serif text-xl text-[#1C1C2E] font-medium list-none flex justify-between items-center gap-4">
+                    <span>{f.q}</span>
+                    <span className="text-[#4A1A7A] transition-transform group-open:rotate-45 text-2xl leading-none" aria-hidden="true">+</span>
+                  </summary>
+                  <p className="mt-3 text-[#3D3D5C] leading-relaxed">{f.a}</p>
+                </details>
+              ))}
+            </div>
+            <div className="mt-12 text-center">
+              <p className="text-[#3D3D5C] mb-4">Still have questions?</p>
+              <Link
+                to="/good-faith-estimate"
+                className="inline-flex items-center gap-2 text-[#4A1A7A] font-bold no-underline hover:text-[#7B2FBE]"
+              >
+                See the Good Faith Estimate <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+          </div>
+        </section>
+      </div>
     </>
   );
 };
+
+export default Schedule;

@@ -12,7 +12,7 @@ const pillars = [
       </svg>
     ),
     title: 'Individual Therapy',
-    description: 'One-on-one sessions tailored to your unique story. We work together to uncover patterns, process pain, and build lasting resilience.',
+    description: 'One-on-one sessions tailored to your unique story.',
   },
   {
     icon: (
@@ -24,7 +24,7 @@ const pillars = [
       </svg>
     ),
     title: 'Culturally Affirming Care',
-    description: 'Therapy that honors your cultural identity. Our practice centers the lived experiences of Black and Brown communities without apology.',
+    description: 'Therapy that honors your cultural identity, without apology.',
   },
   {
     icon: (
@@ -35,25 +35,7 @@ const pillars = [
       </svg>
     ),
     title: 'Holistic Wellness',
-    description: 'Mind, body, and spirit are interconnected. We integrate somatic awareness, mindfulness, and evidence-based modalities for whole-person healing.',
-  },
-];
-
-const testimonials = [
-  {
-    quote: 'Working with Exhale TWC changed my relationship with myself. For the first time, I felt truly seen and understood.',
-    name: 'M.T.',
-    detail: 'Individual Therapy Client',
-  },
-  {
-    quote: 'I was skeptical about therapy, but this practice made me feel safe from the very first session. The cultural competency is real.',
-    name: 'D.R.',
-    detail: 'Online Therapy Client',
-  },
-  {
-    quote: 'The holistic approach here is unlike anything I\'ve experienced. I leave every session feeling centered and empowered.',
-    name: 'A.W.',
-    detail: 'Ongoing Wellness Client',
+    description: 'Mind, body, and spirit — integrated through somatic awareness, mindfulness, and evidence-based care.',
   },
 ];
 
@@ -65,11 +47,14 @@ export const Home: React.FC = () => {
         <meta name="description" content="Premium holistic wellness therapy for Black and Brown communities. Culturally affirming, evidence-based care by a licensed therapist." />
       </Helmet>
 
-      {/* ── HERO — Ocean background ── */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden" aria-labelledby="hero-heading">
+      {/* ── HERO ── */}
+      <section
+        className="relative min-h-screen flex items-center justify-center overflow-hidden"
+        aria-labelledby="hero-heading"
+      >
         <img
           src="/images/hero-ocean.jpg"
-          alt="Calm ocean at golden hour — a symbol of peace and renewal"
+          alt="Calm ocean at golden hour"
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div
@@ -79,27 +64,34 @@ export const Home: React.FC = () => {
         />
         <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-10 pt-36 pb-24 text-center">
           <span
-            className="badge-pill mb-7 inline-flex"
-            style={{ background: 'rgba(201,168,76,0.15)', color: '#F0DFA0', borderColor: 'rgba(201,168,76,0.4)' }}
+            className="inline-block text-xs font-bold uppercase tracking-[0.14em] px-4 py-1.5 rounded-full border mb-7"
+            style={{ background: 'rgba(201,168,76,0.15)', color: '#FFE9A8', borderColor: 'rgba(201,168,76,0.4)' }}
           >
             Holistic Wellness Therapy
           </span>
           <h1
             id="hero-heading"
-            className="text-5xl sm:text-6xl lg:text-7xl font-light text-white mb-6 leading-tight"
-            style={{ fontFamily: 'var(--font-serif)' }}
+            className="font-serif text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
+            style={{ textShadow: '0 2px 6px rgba(0,0,0,0.7), 0 6px 28px rgba(0,0,0,0.6)' }}
           >
             You deserve to heal<br />
-            <em className="font-normal" style={{ color: '#EDD2FF' }}>fully and freely.</em>
+            <em className="font-medium" style={{ color: '#FFE9A8' }}>fully and freely.</em>
           </h1>
           <p className="text-lg sm:text-xl text-white/85 mb-10 max-w-2xl mx-auto leading-relaxed">
             Exhale TWC offers premium, culturally affirming therapy for Black and Brown individuals ready to invest in their whole-person wellness.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/schedule" className="btn-primary" aria-label="Begin your healing journey — schedule a consultation">
-              Begin Your Journey
+            <Link
+              to="/schedule"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-base font-bold no-underline transition-all hover:-translate-y-0.5 hover:shadow-xl"
+              style={{ background: 'linear-gradient(135deg, #B8860B 0%, #C9A84C 100%)', color: '#1C1C2E', boxShadow: '0 6px 18px rgba(184,134,11,0.25)' }}
+            >
+              Begin Your Journey <span aria-hidden="true">→</span>
             </Link>
-            <Link to="/services" className="btn-outline" aria-label="Explore our therapy services">
+            <Link
+              to="/services"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-base font-bold no-underline border-2 border-white/50 text-white hover:bg-white/10 transition-all"
+            >
               Explore Services
             </Link>
           </div>
@@ -116,50 +108,44 @@ export const Home: React.FC = () => {
       <section className="py-24 bg-white" aria-labelledby="philosophy-heading">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            {/* Portrait */}
+            {/* Portrait — no floating badge */}
             <div className="relative order-2 lg:order-1">
               <div className="w-full aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl">
                 <img
                   src="/images/therapist-headshot.png"
-                  alt="Exhale TWC licensed therapist — a warm, professional therapist specializing in culturally affirming care"
+                  alt="Exhale TWC licensed therapist — warm, professional, specializing in culturally affirming care"
                   className="w-full h-full object-cover object-top"
                   loading="lazy"
                 />
-              </div>
-              <div
-                className="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-2xl p-5 max-w-[220px]"
-                style={{ border: '1px solid #EDD2FF' }}
-              >
-                <p className="text-sm font-bold text-[#4A1A7A]" style={{ fontFamily: 'var(--font-serif)' }}>EMDR Trained</p>
-                <p className="text-xs text-gray-500 mt-1 leading-snug">Perinatal Mental Health · Trauma-Informed · CBT · ACT · DBT</p>
               </div>
             </div>
 
             {/* Text */}
             <div className="order-1 lg:order-2">
-              <span className="badge-pill mb-4">Our Philosophy</span>
+              <span
+                className="inline-block text-xs font-bold uppercase tracking-[0.14em] px-4 py-1.5 rounded-full bg-[#F7EEFF] text-[#4A1A7A] mb-4"
+              >
+                Our Philosophy
+              </span>
               <h2
                 id="philosophy-heading"
-                className="text-4xl sm:text-5xl font-light text-[#1C1C2E] mb-5"
-                style={{ fontFamily: 'var(--font-serif)' }}
+                className="font-serif text-4xl sm:text-5xl font-bold text-[#1C1C2E] mb-4 leading-tight"
               >
-                A sanctuary built<br /><em>for you.</em>
+                A sanctuary built<br /><em className="font-medium text-[#4A1A7A]">for you.</em>
               </h2>
-              <span className="divider-gold" />
-              <p className="text-gray-600 leading-relaxed mb-4">
+              <span className="block w-12 h-[3px] rounded-full mb-6" style={{ background: 'linear-gradient(90deg, #B8860B, #C9A84C)' }} />
+              <p className="text-[#3D3D5C] leading-relaxed mb-4">
                 At Exhale TWC, we believe that healing is a necessity. Our practice was created as a sanctuary where Black and Brown individuals can arrive exactly as they are: complex, layered, and worthy of profound care.
               </p>
-              <p className="text-gray-600 leading-relaxed mb-7">
-                Drawing from EMDR, CBT, ACT, DBT, Mindfulness-Based Therapy, CPT, and specialized Perinatal Mental Health training — all delivered through a trauma-informed, culturally affirming lens that honors your full humanity.
+              <p className="text-[#3D3D5C] leading-relaxed mb-7">
+                EMDR, CBT, ACT, DBT, Mindfulness, CPT, and Perinatal Mental Health — delivered through a trauma-informed, culturally affirming lens.
               </p>
               <Link
                 to="/about"
-                className="inline-flex items-center gap-2 text-sm font-bold text-[#4A1A7A] hover:gap-3 transition-all duration-200 no-underline hover:underline"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-base font-bold no-underline transition-all hover:-translate-y-0.5 hover:shadow-xl"
+                style={{ background: 'linear-gradient(135deg, #B8860B 0%, #C9A84C 100%)', color: '#1C1C2E', boxShadow: '0 6px 18px rgba(184,134,11,0.25)' }}
               >
-                Meet Your Therapist
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
+                Meet Your Therapist <span aria-hidden="true">→</span>
               </Link>
             </div>
           </div>
@@ -176,34 +162,38 @@ export const Home: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <span
-                className="badge-pill mb-5"
-                style={{ background: 'rgba(201,168,76,0.15)', color: '#F0DFA0', borderColor: 'rgba(201,168,76,0.35)' }}
+                className="inline-block text-xs font-bold uppercase tracking-[0.14em] px-4 py-1.5 rounded-full border mb-5"
+                style={{ background: 'rgba(201,168,76,0.15)', color: '#FFE9A8', borderColor: 'rgba(201,168,76,0.4)' }}
               >
                 Holistic Modalities
               </span>
               <h2
                 id="bowls-heading"
-                className="text-4xl sm:text-5xl font-light text-white mb-5"
-                style={{ fontFamily: 'var(--font-serif)' }}
+                className="font-serif text-4xl sm:text-5xl font-bold text-white mb-4 leading-tight"
+                style={{ textShadow: '0 2px 6px rgba(0,0,0,0.5)' }}
               >
-                Healing that honors<br /><em style={{ color: '#EDD2FF' }}>the whole person.</em>
+                Healing that honors<br /><em className="font-medium" style={{ color: '#FFE9A8' }}>the whole person.</em>
               </h2>
-              <span className="divider-gold" />
-              <p className="text-gray-300 leading-relaxed mb-4">
-                Our approach weaves together evidence-based clinical therapy with holistic wellness practices — because true healing is not confined to the mind alone. We honor the wisdom of the body and the depth of the spirit.
+              <span className="block w-12 h-[3px] rounded-full mb-6" style={{ background: 'linear-gradient(90deg, #B8860B, #C9A84C)' }} />
+              <p className="text-[#E6D8F5] leading-relaxed mb-4">
+                Our approach weaves together evidence-based clinical therapy with holistic wellness practices — because true healing is not confined to the mind alone.
               </p>
-              <p className="text-gray-300 leading-relaxed mb-8">
+              <p className="text-[#E6D8F5] leading-relaxed mb-8">
                 From somatic awareness to mindfulness-based practices, every tool we use is chosen with intention — and adapted to honor your cultural context and personal history.
               </p>
-              <Link to="/services" className="btn-primary" aria-label="Explore our holistic wellness services">
-                Explore Our Approach
+              <Link
+                to="/services"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-base font-bold no-underline transition-all hover:-translate-y-0.5 hover:shadow-xl"
+                style={{ background: 'linear-gradient(135deg, #B8860B 0%, #C9A84C 100%)', color: '#1C1C2E', boxShadow: '0 6px 18px rgba(184,134,11,0.25)' }}
+              >
+                Explore Our Approach <span aria-hidden="true">→</span>
               </Link>
             </div>
             <div className="relative">
               <div className="w-full aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
                 <img
                   src="/images/healing-bowls-hero.jpg"
-                  alt="Crystal and Tibetan singing bowls with candles and lavender — representing holistic healing practices"
+                  alt="Crystal and Tibetan singing bowls with candles and lavender"
                   className="w-full h-full object-cover"
                   loading="lazy"
                 />
@@ -225,11 +215,12 @@ export const Home: React.FC = () => {
       <section className="py-24" style={{ background: '#F7EEFF' }} aria-labelledby="pillars-heading">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <div className="text-center mb-14">
-            <span className="badge-pill mb-4">What We Offer</span>
+            <span className="inline-block text-xs font-bold uppercase tracking-[0.14em] px-4 py-1.5 rounded-full bg-[#EDD2FF] text-[#4A1A7A] mb-4">
+              What We Offer
+            </span>
             <h2
+              className="font-serif text-4xl sm:text-5xl font-bold text-[#1C1C2E]"
               id="pillars-heading"
-              className="text-4xl sm:text-5xl font-light text-[#1C1C2E]"
-              style={{ fontFamily: 'var(--font-serif)' }}
             >
               Three pillars of healing
             </h2>
@@ -238,23 +229,20 @@ export const Home: React.FC = () => {
             {pillars.map((p, i) => (
               <article
                 key={i}
-                className="card-hover bg-white rounded-3xl p-7 flex flex-col gap-4"
+                className="bg-white rounded-3xl p-7 flex flex-col gap-4 transition-all hover:-translate-y-1 hover:shadow-xl"
                 style={{ boxShadow: '0 4px 24px rgba(74,26,122,0.07)' }}
               >
                 <div className="w-14 h-14 rounded-2xl flex items-center justify-center" style={{ background: '#F7EEFF' }} aria-hidden="true">
                   {p.icon}
                 </div>
-                <h3 className="text-xl font-medium text-[#1C1C2E]" style={{ fontFamily: 'var(--font-serif)' }}>{p.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed flex-1">{p.description}</p>
+                <h3 className="font-serif text-xl font-bold text-[#1C1C2E]">{p.title}</h3>
+                <p className="text-[#3D3D5C] text-sm leading-relaxed flex-1">{p.description}</p>
                 <Link
                   to="/services"
-                  className="inline-flex items-center gap-1.5 text-sm font-bold text-[#4A1A7A] hover:gap-2.5 transition-all duration-200 no-underline hover:underline"
+                  className="inline-flex items-center gap-1.5 text-sm font-bold text-[#4A1A7A] hover:gap-2.5 transition-all no-underline hover:underline"
                   aria-label={`Learn more about ${p.title}`}
                 >
-                  Learn more
-                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
+                  Learn more <span aria-hidden="true">→</span>
                 </Link>
               </article>
             ))}
@@ -262,49 +250,11 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* ── TESTIMONIALS ── */}
-      <section className="py-24 bg-white" aria-labelledby="testimonials-heading">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <div className="text-center mb-14">
-            <span className="badge-pill mb-4">Voices of Healing</span>
-            <h2
-              id="testimonials-heading"
-              className="text-4xl sm:text-5xl font-light text-[#1C1C2E]"
-              style={{ fontFamily: 'var(--font-serif)' }}
-            >
-              Stories that matter
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
-            {testimonials.map((t, i) => (
-              <blockquote
-                key={i}
-                className="card-hover rounded-3xl p-7 flex flex-col gap-5"
-                style={{ background: 'linear-gradient(135deg, #F7EEFF 0%, #ffffff 100%)', border: '1px solid #EDD2FF' }}
-              >
-                <svg className="w-7 h-7 text-[#4A1A7A] opacity-40" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true">
-                  <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z"/>
-                </svg>
-                <p className="text-gray-700 text-sm leading-relaxed flex-1" style={{ fontFamily: 'var(--font-serif)', fontSize: '1.05rem' }}>
-                  &ldquo;{t.quote}&rdquo;
-                </p>
-                <footer>
-                  <cite className="not-italic">
-                    <p className="text-sm font-bold text-[#1C1C2E]">{t.name}</p>
-                    <p className="text-xs text-gray-500 mt-0.5">{t.detail}</p>
-                  </cite>
-                </footer>
-              </blockquote>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── CTA — Ocean calm ── */}
+      {/* ── CTA ── */}
       <section className="relative py-28 overflow-hidden" aria-labelledby="cta-heading">
         <img
           src="/images/ocean-calm.jpg"
-          alt="Serene ocean shoreline at dawn — representing peace and balance"
+          alt="Serene ocean shoreline at dawn"
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div
@@ -315,16 +265,20 @@ export const Home: React.FC = () => {
         <div className="relative z-10 max-w-3xl mx-auto px-6 lg:px-10 text-center">
           <h2
             id="cta-heading"
-            className="text-4xl sm:text-5xl font-light text-white mb-5"
-            style={{ fontFamily: 'var(--font-serif)' }}
+            className="font-serif text-4xl sm:text-5xl font-bold text-white mb-5 leading-tight"
+            style={{ textShadow: '0 2px 6px rgba(0,0,0,0.7)' }}
           >
-            Your healing begins<br /><em style={{ color: '#EDD2FF' }}>with one conversation.</em>
+            Your healing begins <em className="font-medium" style={{ color: '#FFE9A8' }}>with one conversation.</em>
           </h2>
           <p className="text-lg text-white/80 mb-9 max-w-xl mx-auto leading-relaxed">
-            Schedule a complimentary 15-minute consultation. No pressure, no commitment — just a warm, confidential conversation.
+            A warm, confidential 15-minute conversation. No pressure, no commitment.
           </p>
-          <Link to="/schedule" className="btn-primary" aria-label="Schedule your free consultation">
-            Schedule Your Free Consultation
+          <Link
+            to="/schedule"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-base font-bold no-underline transition-all hover:-translate-y-0.5 hover:shadow-xl"
+            style={{ background: 'linear-gradient(135deg, #B8860B 0%, #C9A84C 100%)', color: '#1C1C2E', boxShadow: '0 6px 18px rgba(184,134,11,0.25)' }}
+          >
+            Schedule Your Free Consultation <span aria-hidden="true">→</span>
           </Link>
         </div>
       </section>

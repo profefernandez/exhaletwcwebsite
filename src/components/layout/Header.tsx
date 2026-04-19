@@ -2,9 +2,10 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
 const navLinks = [
-  { label: 'Home',     path: '/' },
-  { label: 'About',    path: '/about' },
-  { label: 'Services', path: '/services' },
+  { label: 'Home',                 path: '/' },
+  { label: 'About',                path: '/about' },
+  { label: 'Services',             path: '/services' },
+  { label: 'Good Faith Estimate',  path: '/good-faith-estimate' },
 ];
 
 export const Header: React.FC = () => {
@@ -13,7 +14,8 @@ export const Header: React.FC = () => {
   const hamburgerRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => setScrolled(window.scrollY > 60);
+    onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
@@ -34,36 +36,38 @@ export const Header: React.FC = () => {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
           ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-purple-100'
-          : 'bg-white/85 backdrop-blur-sm'
+          : 'bg-white/90 backdrop-blur-sm border-b border-purple-50'
       }`}
       role="banner"
     >
       <a href="#main-content" className="skip-to-main">Skip to main content</a>
 
       <nav
-        className="max-w-7xl mx-auto px-6 lg:px-10 h-[80px] flex items-center justify-between"
+        className="max-w-7xl mx-auto px-6 lg:px-10 h-[120px] flex items-center justify-between"
         aria-label="Main navigation"
       >
-        {/* Logo */}
-        <Link to="/" aria-label="Exhale Therapy, Wellness and Consulting — Home">
+        {/* Logo — bumped to 110px so it's legible */}
+        <Link to="/" aria-label="Exhale Therapy, Wellness and Consulting — Home" className="flex items-center">
           <img
             src="/images/logo_transparent.png"
             alt="Exhale Therapy, Wellness & Consulting"
-            style={{ height: '64px', width: '64px', objectFit: 'contain' }}
+            style={{ height: '110px', width: '110px', objectFit: 'contain' }}
           />
         </Link>
 
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-8">
-          <ul className="flex items-center gap-6 list-none">
+          <ul className="flex items-center gap-6 list-none m-0 p-0">
             {navLinks.map((link) => (
               <li key={link.path}>
                 <NavLink
                   to={link.path}
                   end={link.path === '/'}
                   className={({ isActive }) =>
-                    `text-sm font-semibold tracking-wide transition-colors duration-200 no-underline ${
-                      isActive ? 'text-[#4A1A7A]' : 'text-[#3D3D5C] hover:text-[#4A1A7A]'
+                    `text-sm font-semibold tracking-wide transition-colors duration-200 no-underline pb-1 border-b-2 ${
+                      isActive
+                        ? 'text-[#4A1A7A] border-[#4A1A7A]'
+                        : 'text-[#3D3D5C] border-transparent hover:text-[#4A1A7A] hover:border-[#4A1A7A]'
                     }`
                   }
                 >
@@ -74,7 +78,7 @@ export const Header: React.FC = () => {
           </ul>
           <Link
             to="/schedule"
-            className="inline-flex items-center px-6 py-2.5 rounded-full text-sm font-bold text-white no-underline transition-all duration-200 hover:opacity-90 hover:shadow-lg"
+            className="inline-flex items-center px-6 py-2.5 rounded-full text-sm font-bold text-white no-underline transition-all duration-200 hover:opacity-95 hover:shadow-lg hover:-translate-y-0.5"
             style={{ background: 'linear-gradient(135deg, #4A1A7A 0%, #7B2FBE 100%)' }}
             aria-label="Book a consultation"
           >
@@ -105,7 +109,7 @@ export const Header: React.FC = () => {
           role="dialog"
           aria-label="Navigation menu"
         >
-          <ul className="flex flex-col gap-3 list-none">
+          <ul className="flex flex-col gap-3 list-none m-0 p-0">
             {navLinks.map((link) => (
               <li key={link.path}>
                 <NavLink

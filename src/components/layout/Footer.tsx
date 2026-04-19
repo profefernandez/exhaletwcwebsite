@@ -56,11 +56,11 @@ export const Footer: React.FC = () => {
             <ul className="space-y-3 list-none mb-6">
               <li>
                 <a
-                  href="mailto:hello@exhaletwc.com"
+                  href="mailto:tamara@exhaletwc.com"
                   className="text-sm text-gray-400 hover:text-purple-200 transition-colors duration-200 no-underline hover:underline"
                   aria-label="Email Exhale TWC"
                 >
-                  hello@exhaletwc.com
+                  tamara@exhaletwc.com
                 </a>
               </li>
               <li>

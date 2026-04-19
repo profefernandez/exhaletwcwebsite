@@ -157,10 +157,10 @@ export const PrivacyPolicy: React.FC = () => {
                 <p>
                   Email:{' '}
                   <a
-                    href="mailto:hello@exhaletwc.com"
+                    href="mailto:tamara@exhaletwc.com"
                     className="text-[#953fcf] hover:text-[#8b54d7] underline"
                   >
-                    hello@exhaletwc.com
+                    tamara@exhaletwc.com
                   </a>
                 </p>
                 <p>Website: exhaletwc.com</p>
