@@ -26,7 +26,7 @@ const faqs = [
   },
 ];
 
-const Schedule: React.FC = () => {
+export const Schedule: React.FC = () => {
   return (
     <>
       <Helmet>
@@ -189,4 +189,3 @@ const Schedule: React.FC = () => {
   );
 };
 
-export default Schedule;
