@@ -1,275 +1,638 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 
 export const GoodFaithEstimate: React.FC = () => {
+  const [openRight, setOpenRight] = useState<number | null>(null);
+
+  const rights = [
+    {
+      title: 'Know your costs before you begin',
+      body: 'You have the right to receive a written Good Faith Estimate before your first session — or at any time upon request. It must be provided at least 1 business day before your appointment.',
+    },
+    {
+      title: 'Dispute a bill that exceeds your estimate',
+      body: 'If your final bill is $400 or more above what was listed in your Good Faith Estimate, you have the right to dispute that charge through the federal dispute resolution process.',
+    },
+    {
+      title: 'Keep a copy for your records',
+      body: 'Always save a copy of your Good Faith Estimate. It is your legal documentation of what was agreed upon before services began.',
+    },
+    {
+      title: 'Ask questions — any time',
+      body: 'Any conversation about cost counts as a request for a Good Faith Estimate. You do not need to use specific legal language. Simply asking "how much will this cost?" is enough.',
+    },
+    {
+      title: 'No obligation to proceed',
+      body: 'Receiving a Good Faith Estimate does not commit you to receiving services. It is information — not a contract.',
+    },
+    {
+      title: 'Protection from balance billing',
+      body: 'Providers cannot charge you more than your estimate without your written consent. State laws in Texas may provide additional protections beyond federal requirements.',
+    },
+  ];
+
   return (
     <>
       <Helmet>
         <title>Good Faith Estimate — Exhale TWC</title>
-        <meta name="description" content="Before your first session, you'll know exactly what it costs. No surprises, no hidden fees." />
+        <meta name="description" content="Understand your right to a Good Faith Estimate under the No Surprises Act. Exhale TWC is committed to full pricing transparency before your first session." />
       </Helmet>
 
       {/* ── HERO ── */}
       <section
-        className="relative min-h-[50vh] flex items-center justify-center overflow-hidden"
-        aria-labelledby="gfe-heading"
+        className="relative min-h-[70vh] flex items-center justify-center overflow-hidden"
+        aria-labelledby="gfe-hero-heading"
       >
         <img
-          src="/images/hero-ocean.jpg"
-          alt=""
-          aria-hidden="true"
+          src="/images/healing-bowls-hero.jpg"
+          alt="Crystal and Tibetan singing bowls with candles"
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div
-          className="absolute inset-0"
-          style={{ background: 'linear-gradient(150deg, rgba(28,10,58,0.92) 0%, rgba(74,26,122,0.82) 100%)' }}
+          className="absolute inset-0 pointer-events-none"
+          style={{ background: 'linear-gradient(160deg, rgba(28,10,58,0.92) 0%, rgba(45,27,78,0.88) 50%, rgba(74,26,122,0.82) 100%)' }}
           aria-hidden="true"
         />
-        <div className="relative z-10 max-w-3xl mx-auto px-6 lg:px-10 pt-40 pb-20 text-center">
+        <div className="relative z-10 max-w-3xl mx-auto px-6 lg:px-10 pt-36 pb-24 text-center">
           <span
-            className="badge-pill mb-6 inline-flex"
-            style={{ background: 'rgba(201,168,76,0.12)', color: '#F0DFA0', borderColor: 'rgba(201,168,76,0.3)' }}
+            className="inline-block text-xs font-bold uppercase tracking-[0.16em] px-4 py-1.5 rounded-full border mb-7"
+            style={{ background: 'rgba(201,168,76,0.15)', color: '#FFE9A8', borderColor: 'rgba(201,168,76,0.4)' }}
           >
-            Know Before You Begin
+            Transparency
           </span>
           <h1
-            id="gfe-heading"
-            className="text-5xl sm:text-6xl font-light text-white mb-5"
-            style={{ fontFamily: 'var(--font-serif)' }}
+            id="gfe-hero-heading"
+            className="font-serif text-5xl sm:text-6xl font-bold text-white mb-6 leading-tight"
+            style={{ textShadow: '0 2px 8px rgba(0,0,0,0.7)' }}
           >
-            No surprises.<br />
-            <em className="text-[#EDD2FF]">Just clarity.</em>
+            Good Faith<br />
+            <em className="font-medium" style={{ color: '#FFE9A8' }}>Estimate.</em>
           </h1>
-          <p className="text-lg text-white/70 max-w-xl mx-auto leading-relaxed">
-            Before your first session, you will know exactly what it costs. That is it.
+          <p className="text-lg leading-relaxed max-w-xl mx-auto" style={{ color: 'rgba(255,255,255,0.8)' }}>
+            Under the No Surprises Act, you have the right to know what your care will cost — before you ever walk through the door.
           </p>
         </div>
       </section>
 
-      {/* ── VISUAL EXAMPLE — first thing after hero ── */}
-      <section className="py-20 bg-white" aria-labelledby="example-heading">
-        <div className="max-w-3xl mx-auto px-6 lg:px-10">
-          <div className="text-center mb-10">
-            <h2
-              id="example-heading"
-              className="text-3xl sm:text-4xl font-light text-[#1C1C2E]"
-              style={{ fontFamily: 'var(--font-serif)' }}
+      {/* ── SECTION 1: WHAT IT MEANS FOR YOU ── */}
+      <section className="py-24 bg-white" aria-labelledby="gfe-what-heading">
+        <div className="max-w-5xl mx-auto px-6 lg:px-10">
+          <div className="text-center mb-14">
+            <span
+              className="inline-block text-xs font-bold uppercase tracking-[0.16em] px-4 py-1.5 rounded-full mb-5"
+              style={{ background: '#F7EEFF', color: '#4A1A7A' }}
             >
-              Here is what it means<br />
-              <em style={{ color: '#7B2FBE' }}>in real life.</em>
+              What This Means for You
+            </span>
+            <h2
+              id="gfe-what-heading"
+              className="font-serif text-4xl sm:text-5xl font-bold text-[#1C1C2E] mb-4 leading-tight"
+            >
+              No surprises.<br />
+              <em className="font-medium" style={{ color: '#4A1A7A' }}>Just clarity.</em>
             </h2>
+            <span
+              className="block w-12 h-[3px] rounded-full mx-auto mb-8"
+              style={{ background: 'linear-gradient(90deg, #B8860B, #C9A84C)' }}
+            />
           </div>
 
-          {/* The visual — two scenarios, side by side */}
-          <div
-            className="rounded-3xl overflow-hidden"
-            style={{ border: '1px solid #EDD2FF', boxShadow: '0 8px 40px rgba(74,26,122,0.10)' }}
-          >
-            {/* Label bar */}
-            <div
-              className="px-8 py-4 text-center text-sm font-semibold tracking-widest uppercase"
-              style={{ background: 'linear-gradient(135deg, #4A1A7A 0%, #7B2FBE 100%)', color: 'rgba(255,255,255,0.85)' }}
-            >
-              Before vs. After Your Estimate
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            {/* Left: plain language + law citation */}
+            <div>
+              <p className="text-[#3D3D5C] text-lg leading-relaxed mb-5">
+                A <strong className="text-[#1C1C2E]">Good Faith Estimate</strong> is a written document that tells you — in plain language — how much your therapy sessions are expected to cost before you begin.
+              </p>
+              <p className="text-[#3D3D5C] leading-relaxed mb-5">
+                Think of it as a price quote for your care. You receive it before your first session so you can make an informed decision — with no unexpected bills later.
+              </p>
+              <p className="text-[#3D3D5C] leading-relaxed mb-8">
+                This applies to you if you are paying out of pocket, do not have insurance, or choose not to use your insurance for therapy services.
+              </p>
+
+              {/* Law citation card */}
+              <div
+                className="rounded-2xl p-6 border-l-4"
+                style={{ background: '#F7EEFF', borderLeftColor: '#4A1A7A' }}
+              >
+                <p
+                  className="text-xs font-bold uppercase tracking-[0.14em] mb-2"
+                  style={{ color: '#4A1A7A' }}
+                >
+                  Federal Law
+                </p>
+                <p className="font-serif text-lg font-bold text-[#1C1C2E] mb-2">The No Surprises Act</p>
+                <p className="text-[#3D3D5C] text-sm leading-relaxed mb-3">
+                  Enacted as part of the <strong>Consolidated Appropriations Act, 2021 (Pub. L. 116-260)</strong>, effective January 1, 2022. Codified at <strong>42 U.S.C. § 300gg-136</strong>.
+                </p>
+                <p className="text-[#3D3D5C] text-sm leading-relaxed mb-4">
+                  All licensed healthcare providers — including therapists — must provide a Good Faith Estimate to any client who is uninsured or not using insurance for services.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-3 text-sm">
+                  <a
+                    href="https://www.cms.gov/nosurprises"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 font-bold hover:underline"
+                    style={{ color: '#4A1A7A', textDecoration: 'none' }}
+                    aria-label="Visit CMS No Surprises Act website (opens in new tab)"
+                  >
+                    cms.gov/nosurprises ↗
+                  </a>
+                  <span className="hidden sm:inline" style={{ color: '#9B59D0' }}>·</span>
+                  <a
+                    href="https://www.tdi.texas.gov/medical-billing/surprise-balance-billing.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 font-bold hover:underline"
+                    style={{ color: '#4A1A7A', textDecoration: 'none' }}
+                    aria-label="Visit Texas Department of Insurance surprise billing page (opens in new tab)"
+                  >
+                    Texas TDI Resource ↗
+                  </a>
+                </div>
+              </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2">
-              {/* Without estimate */}
-              <div
-                className="p-8 flex flex-col items-center text-center gap-4"
-                style={{ background: '#FFF5F5', borderRight: '1px solid #EDD2FF' }}
+            {/* Right: visual before/after */}
+            <div>
+              <p
+                className="text-xs font-bold uppercase tracking-[0.14em] mb-4"
+                style={{ color: '#4A1A7A' }}
               >
-                <div
-                  className="w-16 h-16 rounded-full flex items-center justify-center"
-                  style={{ background: '#FEE2E2' }}
-                  aria-hidden="true"
-                >
-                  <svg className="w-8 h-8 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9.303 3.376c.866 1.5-.217 3.374-1.948 3.374H4.645c-1.73 0-2.813-1.874-1.948-3.374l5.304-9.168A2.25 2.25 0 0112 4.5c.9 0 1.718.478 2.165 1.26l5.304 9.168zM12 15.75h.008v.008H12v-.008z" />
-                  </svg>
+                See the Difference
+              </p>
+
+              <div
+                className="rounded-2xl p-6 mb-4 border"
+                style={{ background: '#FFF5F5', borderColor: '#FECACA' }}
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <div
+                    className="w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0"
+                    style={{ background: '#DC2626' }}
+                    aria-hidden="true"
+                  >
+                    ✕
+                  </div>
+                  <p className="font-bold text-[#1C1C2E]">Without a Good Faith Estimate</p>
                 </div>
-                <p className="text-xs font-bold tracking-widest uppercase text-red-400">Without an Estimate</p>
-                <p className="text-gray-600 leading-relaxed">
-                  You finish your first session and receive a bill for <strong className="text-red-500 text-lg">$250.</strong><br />
-                  You had no idea it would be that much.
+                <p className="text-[#3D3D5C] text-sm leading-relaxed">
+                  You complete your first session. A week later, a bill arrives for <strong>$250</strong>. You had no idea it would be that much. You feel blindsided — and trust is broken before the work has even begun.
                 </p>
               </div>
 
-              {/* With estimate */}
               <div
-                className="p-8 flex flex-col items-center text-center gap-4"
-                style={{ background: '#F0FFF6' }}
+                className="rounded-2xl p-6 border"
+                style={{ background: '#F0FDF4', borderColor: '#86EFAC' }}
               >
-                <div
-                  className="w-16 h-16 rounded-full flex items-center justify-center"
-                  style={{ background: '#D1FAE5' }}
-                  aria-hidden="true"
-                >
-                  <svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
+                <div className="flex items-center gap-3 mb-3">
+                  <div
+                    className="w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0"
+                    style={{ background: '#16A34A' }}
+                    aria-hidden="true"
+                  >
+                    ✓
+                  </div>
+                  <p className="font-bold text-[#1C1C2E]">With your Good Faith Estimate</p>
                 </div>
-                <p className="text-xs font-bold tracking-widest uppercase text-green-600">With Your Estimate</p>
-                <p className="text-gray-600 leading-relaxed">
-                  Before you ever walk in, you know your rate is <strong className="text-green-700 text-lg">$150 per session.</strong><br />
-                  Your bill matches. No surprises.
+                <p className="text-[#3D3D5C] text-sm leading-relaxed">
+                  Before your first session, you receive a written estimate. Your rate is <strong>$150 per session</strong>, billed monthly. You know exactly what to expect. You arrive ready to focus on your healing — not your bill.
                 </p>
               </div>
-            </div>
 
-            {/* Bottom note */}
-            <div
-              className="px-8 py-4 text-center text-sm"
-              style={{ background: '#F7EEFF', color: '#4A1A7A', borderTop: '1px solid #EDD2FF' }}
-            >
-              Federal law requires us to give you this estimate before your first appointment. It is your right.
+              <p className="text-xs text-center mt-4 leading-relaxed" style={{ color: '#6B7280' }}>
+                Federal law requires this estimate in writing at least 1 business day before your appointment.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── WHAT TO EXPECT — dark brand section ── */}
+      {/* ── SECTION 2: TEMPLATE EXAMPLE ── */}
       <section
-        className="py-20"
-        style={{ background: 'linear-gradient(150deg, #1C0A3A 0%, #2D1B4E 60%, #4A1A7A 100%)' }}
-        aria-labelledby="expect-heading"
+        className="py-24"
+        style={{ background: 'linear-gradient(135deg, #1C0A3A 0%, #2D1B4E 60%, #4A1A7A 100%)' }}
+        aria-labelledby="gfe-template-heading"
       >
-        <div className="max-w-4xl mx-auto px-6 lg:px-10">
-          <div className="text-center mb-12">
+        <div className="max-w-5xl mx-auto px-6 lg:px-10">
+          <div className="text-center mb-14">
             <span
-              className="badge-pill mb-5 inline-flex"
-              style={{ background: 'rgba(201,168,76,0.12)', color: '#F0DFA0', borderColor: 'rgba(201,168,76,0.3)' }}
+              className="inline-block text-xs font-bold uppercase tracking-[0.16em] px-4 py-1.5 rounded-full border mb-5"
+              style={{ background: 'rgba(201,168,76,0.15)', color: '#FFE9A8', borderColor: 'rgba(201,168,76,0.4)' }}
             >
-              Typical Costs in Texas
+              Example Estimate
             </span>
             <h2
-              id="expect-heading"
-              className="text-4xl sm:text-5xl font-light text-white mb-4"
-              style={{ fontFamily: 'var(--font-serif)' }}
+              id="gfe-template-heading"
+              className="font-serif text-4xl sm:text-5xl font-bold text-white mb-4 leading-tight"
+              style={{ textShadow: '0 2px 6px rgba(0,0,0,0.5)' }}
             >
-              What can I expect<br />
-              <em className="text-[#EDD2FF]">to pay?</em>
+              What your estimate<br />
+              <em className="font-medium" style={{ color: '#FFE9A8' }}>will look like.</em>
             </h2>
-            <p className="text-white/60 max-w-lg mx-auto">
-              These are typical ranges. Your personal estimate will reflect your exact plan.
+            <span
+              className="block w-12 h-[3px] rounded-full mx-auto mb-6"
+              style={{ background: 'linear-gradient(90deg, #B8860B, #C9A84C)' }}
+            />
+            <p className="max-w-xl mx-auto leading-relaxed" style={{ color: 'rgba(230,216,245,0.85)' }}>
+              Below is a sample of the Good Faith Estimate you will receive from Exhale TWC before your first session.
             </p>
           </div>
 
-          {/* Simple cost bars */}
-          <div className="space-y-7">
-            {[
-              { label: 'Every other week', sub: '~26 sessions / year', low: 3900, high: 4550 },
-              { label: 'Once a week', sub: '~52 sessions / year', low: 7800, high: 9100 },
-              { label: 'As needed', sub: '~1–2 times / month', low: 1800, high: 3600 },
-            ].map((row, i) => (
-              <div key={i}>
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-2">
-                  <div>
-                    <span className="text-white font-semibold">{row.label}</span>
-                    <span className="text-white/40 text-sm ml-2">({row.sub})</span>
-                  </div>
-                  <span className="font-bold text-[#EDD2FF]">
-                    ${row.low.toLocaleString()} – ${row.high.toLocaleString()} / year
-                  </span>
-                </div>
-                <div
-                  className="h-2.5 rounded-full overflow-hidden"
-                  style={{ background: 'rgba(255,255,255,0.08)' }}
-                  role="img"
-                  aria-label={`${row.label}: $${row.low.toLocaleString()} to $${row.high.toLocaleString()} per year`}
+          {/* Template card */}
+          <div
+            className="bg-white rounded-3xl overflow-hidden"
+            style={{ boxShadow: '0 24px 64px rgba(0,0,0,0.4)' }}
+          >
+            {/* Card header */}
+            <div
+              className="px-8 py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
+              style={{ background: 'linear-gradient(135deg, #1C0A3A 0%, #4A1A7A 100%)' }}
+            >
+              <div>
+                <p
+                  className="text-xs font-bold uppercase tracking-[0.14em] mb-1"
+                  style={{ color: '#FFE9A8' }}
                 >
-                  <div
-                    className="h-full rounded-full"
-                    style={{
-                      width: `${Math.round((row.high / 10000) * 100)}%`,
-                      background: 'linear-gradient(90deg, rgba(155,89,208,0.5), #9B59D0)',
-                    }}
-                    aria-hidden="true"
-                  />
+                  Good Faith Estimate
+                </p>
+                <p className="font-serif text-2xl font-bold text-white">Exhale TWC</p>
+                <p className="text-sm" style={{ color: 'rgba(255,255,255,0.65)' }}>Therapy, Wellness & Consulting</p>
+              </div>
+              <div className="text-right">
+                <p className="text-xs mb-1" style={{ color: 'rgba(255,255,255,0.5)' }}>Valid for</p>
+                <p className="font-bold text-white text-lg">12 months</p>
+                <p className="text-xs" style={{ color: 'rgba(255,255,255,0.5)' }}>from date of issue</p>
+              </div>
+            </div>
+
+            <div className="px-8 py-8">
+              {/* Provider + Client info */}
+              <div
+                className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8 pb-8"
+                style={{ borderBottom: '1px solid #F7EEFF' }}
+              >
+                <div>
+                  <p
+                    className="text-xs font-bold uppercase tracking-[0.14em] mb-3"
+                    style={{ color: '#4A1A7A' }}
+                  >
+                    Provider Information
+                  </p>
+                  <p className="text-[#1C1C2E] font-semibold">Exhale TWC</p>
+                  <p className="text-[#3D3D5C] text-sm">Licensed Professional Counselor</p>
+                  <p className="text-[#3D3D5C] text-sm">NPI: [On file]</p>
+                  <p className="text-[#3D3D5C] text-sm">tamara@exhaletwc.com</p>
+                  <p className="text-[#3D3D5C] text-sm">(281) 884-3865</p>
+                  <p className="text-[#3D3D5C] text-sm">Texas</p>
+                </div>
+                <div>
+                  <p
+                    className="text-xs font-bold uppercase tracking-[0.14em] mb-3"
+                    style={{ color: '#4A1A7A' }}
+                  >
+                    Client Information
+                  </p>
+                  <p className="text-[#1C1C2E] font-semibold">[Client Name]</p>
+                  <p className="text-[#3D3D5C] text-sm">Date of Birth: [DOB]</p>
+                  <p className="text-[#3D3D5C] text-sm">Date Issued: [Date]</p>
+                  <p className="text-[#3D3D5C] text-sm">Payment: Self-Pay / Uninsured</p>
                 </div>
               </div>
-            ))}
-          </div>
 
-          {/* Sliding scale */}
-          <div
-            className="mt-10 rounded-2xl p-6 flex items-start gap-4"
-            style={{ background: 'rgba(201,168,76,0.10)', border: '1px solid rgba(201,168,76,0.25)' }}
-          >
-            <div
-              className="w-10 h-10 rounded-xl flex-shrink-0 flex items-center justify-center mt-0.5"
-              style={{ background: 'linear-gradient(135deg, #B8860B 0%, #C9A84C 100%)' }}
-              aria-hidden="true"
-            >
-              <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0012 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 01-2.031.352 5.988 5.988 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 01-2.031.352 5.989 5.989 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.971z" />
-              </svg>
-            </div>
-            <div>
-              <p className="font-semibold text-white mb-1" style={{ fontFamily: 'var(--font-serif)' }}>
-                Sliding scale available
-              </p>
-              <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.65)' }}>
-                A limited number of reduced-rate slots are available. Just mention it during your free consultation — no paperwork, no judgment.
-              </p>
+              {/* Services table */}
+              <div className="mb-8">
+                <p
+                  className="text-xs font-bold uppercase tracking-[0.14em] mb-4"
+                  style={{ color: '#4A1A7A' }}
+                >
+                  Itemized Services
+                </p>
+                <div
+                  className="overflow-x-auto rounded-xl"
+                  style={{ border: '1px solid #F7EEFF' }}
+                >
+                  <table
+                    className="w-full text-sm"
+                    role="table"
+                    aria-label="Itemized services and estimated costs"
+                  >
+                    <thead>
+                      <tr
+                        style={{ background: 'linear-gradient(135deg, #1C0A3A 0%, #4A1A7A 100%)' }}
+                      >
+                        <th className="text-left px-5 py-3 text-white font-bold text-xs uppercase tracking-wider">Service</th>
+                        <th className="text-left px-5 py-3 text-white font-bold text-xs uppercase tracking-wider">CPT Code</th>
+                        <th className="text-right px-5 py-3 text-white font-bold text-xs uppercase tracking-wider">Per Session</th>
+                        <th className="text-right px-5 py-3 text-white font-bold text-xs uppercase tracking-wider">Est. Sessions</th>
+                        <th className="text-right px-5 py-3 text-white font-bold text-xs uppercase tracking-wider">Subtotal</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr style={{ background: '#FAFAFA', borderBottom: '1px solid #F7EEFF' }}>
+                        <td className="px-5 py-4 text-[#1C1C2E] font-medium">Initial Evaluation</td>
+                        <td className="px-5 py-4 text-[#3D3D5C]">90791</td>
+                        <td className="px-5 py-4 text-right text-[#1C1C2E] font-semibold">$150</td>
+                        <td className="px-5 py-4 text-right text-[#3D3D5C]">1</td>
+                        <td className="px-5 py-4 text-right text-[#1C1C2E] font-semibold">$150</td>
+                      </tr>
+                      <tr style={{ borderBottom: '1px solid #F7EEFF' }}>
+                        <td className="px-5 py-4 text-[#1C1C2E] font-medium">Individual Therapy (60 min)</td>
+                        <td className="px-5 py-4 text-[#3D3D5C]">90837</td>
+                        <td className="px-5 py-4 text-right text-[#1C1C2E] font-semibold">$150</td>
+                        <td className="px-5 py-4 text-right text-[#3D3D5C]">~24</td>
+                        <td className="px-5 py-4 text-right text-[#1C1C2E] font-semibold">$3,600</td>
+                      </tr>
+                      <tr style={{ background: '#FAFAFA', borderBottom: '1px solid #F7EEFF' }}>
+                        <td className="px-5 py-4 text-[#1C1C2E] font-medium">Individual Therapy (45 min)</td>
+                        <td className="px-5 py-4 text-[#3D3D5C]">90834</td>
+                        <td className="px-5 py-4 text-right text-[#1C1C2E] font-semibold">$125</td>
+                        <td className="px-5 py-4 text-right text-[#3D3D5C]">—</td>
+                        <td className="px-5 py-4 text-right text-[#3D3D5C] italic">if applicable</td>
+                      </tr>
+                    </tbody>
+                    <tfoot>
+                      <tr style={{ background: '#F7EEFF' }}>
+                        <td
+                          colSpan={4}
+                          className="px-5 py-4 font-bold text-[#1C1C2E] text-right"
+                        >
+                          Estimated 12-Month Total
+                        </td>
+                        <td
+                          className="px-5 py-4 text-right font-bold text-lg"
+                          style={{ color: '#4A1A7A' }}
+                        >
+                          $3,750
+                        </td>
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+                <p className="text-xs mt-3 leading-relaxed" style={{ color: '#6B7280' }}>
+                  * Based on approximately bi-weekly sessions. Actual frequency and total will be discussed and agreed upon with your therapist.
+                </p>
+              </div>
+
+              {/* Cost scenarios */}
+              <div className="mb-8">
+                <p
+                  className="text-xs font-bold uppercase tracking-[0.14em] mb-4"
+                  style={{ color: '#4A1A7A' }}
+                >
+                  Common Session Frequencies
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  {[
+                    { label: 'Every other week', sessions: '~26 sessions', total: '~$3,900', highlight: true, note: 'Most common' },
+                    { label: 'Once a week', sessions: '~52 sessions', total: '~$7,800', highlight: false, note: 'Intensive support' },
+                    { label: 'Once a month', sessions: '~12 sessions', total: '~$1,800', highlight: false, note: 'Maintenance' },
+                  ].map((s, i) => (
+                    <div
+                      key={i}
+                      className="rounded-xl p-5 text-center"
+                      style={{
+                        background: s.highlight
+                          ? 'linear-gradient(135deg, #1C0A3A, #4A1A7A)'
+                          : '#F7EEFF',
+                      }}
+                    >
+                      <span
+                        className="inline-block text-xs font-bold uppercase tracking-wider px-2 py-0.5 rounded-full mb-2"
+                        style={
+                          s.highlight
+                            ? { background: 'rgba(201,168,76,0.25)', color: '#FFE9A8' }
+                            : { background: '#EDD2FF', color: '#4A1A7A' }
+                        }
+                      >
+                        {s.note}
+                      </span>
+                      <p
+                        className="font-semibold text-sm mb-1"
+                        style={{ color: s.highlight ? '#E6D8F5' : '#3D3D5C' }}
+                      >
+                        {s.label}
+                      </p>
+                      <p
+                        className="text-xs mb-2"
+                        style={{ color: s.highlight ? 'rgba(230,216,245,0.65)' : '#6B7280' }}
+                      >
+                        {s.sessions} / year
+                      </p>
+                      <p
+                        className="font-serif text-2xl font-bold"
+                        style={{ color: s.highlight ? '#FFE9A8' : '#4A1A7A' }}
+                      >
+                        {s.total}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Disclaimer */}
+              <div
+                className="rounded-xl p-5 border"
+                style={{ background: '#FFFBEB', borderColor: '#FDE68A' }}
+              >
+                <p
+                  className="text-xs font-bold uppercase tracking-[0.14em] mb-2"
+                  style={{ color: '#92400E' }}
+                >
+                  Important Notice
+                </p>
+                <p className="text-sm leading-relaxed" style={{ color: '#78350F' }}>
+                  This estimate is not a contract and does not require you to obtain services from Exhale TWC. Actual services, session frequency, and charges may differ based on your individual treatment needs. If your actual bill is <strong>$400 or more above</strong> this estimate, you have the right to dispute the charge. This estimate is valid for 12 months from the date of issue.
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── YOUR RIGHTS — lavender section ── */}
-      <section className="py-20" style={{ background: '#F7EEFF' }} aria-labelledby="rights-heading">
-        <div className="max-w-4xl mx-auto px-6 lg:px-10">
-          <div className="text-center mb-10">
-            <span className="badge-pill mb-4">Your Rights</span>
-            <h2
-              id="rights-heading"
-              className="text-3xl sm:text-4xl font-light text-[#1C1C2E]"
-              style={{ fontFamily: 'var(--font-serif)' }}
+      {/* ── SECTION 3: YOUR RIGHTS ── */}
+      <section className="py-24 bg-white" aria-labelledby="gfe-rights-heading">
+        <div className="max-w-5xl mx-auto px-6 lg:px-10">
+          <div className="text-center mb-14">
+            <span
+              className="inline-block text-xs font-bold uppercase tracking-[0.16em] px-4 py-1.5 rounded-full mb-5"
+              style={{ background: '#F7EEFF', color: '#4A1A7A' }}
             >
-              You are always in control.
+              Know Your Rights
+            </span>
+            <h2
+              id="gfe-rights-heading"
+              className="font-serif text-4xl sm:text-5xl font-bold text-[#1C1C2E] mb-4 leading-tight"
+            >
+              You are protected<br />
+              <em className="font-medium" style={{ color: '#4A1A7A' }}>by federal law.</em>
             </h2>
+            <span
+              className="block w-12 h-[3px] rounded-full mx-auto mb-6"
+              style={{ background: 'linear-gradient(90deg, #B8860B, #C9A84C)' }}
+            />
+            <p className="text-[#3D3D5C] max-w-xl mx-auto leading-relaxed">
+              Under the No Surprises Act (42 U.S.C. § 300gg-136), every client who pays out of pocket has the following rights.
+            </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
-            {[
-              { icon: '📄', title: 'Written before you start', body: 'You receive your estimate in writing before your first session — not after.' },
-              { icon: '💬', title: 'Ask anything', body: 'You can ask questions, negotiate, or walk away at any point. No penalty, ever.' },
-              { icon: '⚖️', title: 'Dispute if needed', body: 'If your final bill is $400 or more over your estimate, you have the legal right to dispute it.' },
-            ].map((item, i) => (
-              <div
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
+            {rights.map((r, i) => (
+              <button
                 key={i}
-                className="bg-white rounded-2xl p-6 text-center card-hover"
-                style={{ border: '1px solid #EDD2FF', boxShadow: '0 4px 20px rgba(74,26,122,0.06)' }}
+                onClick={() => setOpenRight(openRight === i ? null : i)}
+                className="text-left rounded-2xl p-6 transition-all hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+                style={{
+                  background: openRight === i
+                    ? 'linear-gradient(135deg, #1C0A3A 0%, #4A1A7A 100%)'
+                    : '#F7EEFF',
+                  boxShadow: openRight === i
+                    ? '0 12px 32px rgba(74,26,122,0.3)'
+                    : '0 4px 16px rgba(74,26,122,0.06)',
+                  outline: 'none',
+                }}
+                aria-expanded={openRight === i}
               >
-                <div className="text-3xl mb-3" aria-hidden="true">{item.icon}</div>
-                <h3 className="font-semibold text-[#1C1C2E] mb-2" style={{ fontFamily: 'var(--font-serif)' }}>{item.title}</h3>
-                <p className="text-sm text-gray-600 leading-relaxed">{item.body}</p>
-              </div>
+                <div className="flex items-start justify-between gap-3 mb-3">
+                  <span
+                    className="font-serif text-3xl font-bold leading-none"
+                    style={{ color: openRight === i ? 'rgba(255,233,168,0.4)' : 'rgba(74,26,122,0.18)' }}
+                    aria-hidden="true"
+                  >
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <span
+                    className="text-xl font-bold leading-none mt-1"
+                    style={{ color: openRight === i ? '#FFE9A8' : '#4A1A7A' }}
+                    aria-hidden="true"
+                  >
+                    {openRight === i ? '−' : '+'}
+                  </span>
+                </div>
+                <h3
+                  className="font-serif text-lg font-bold leading-snug"
+                  style={{ color: openRight === i ? '#ffffff' : '#1C1C2E' }}
+                >
+                  {r.title}
+                </h3>
+                {openRight === i && (
+                  <p
+                    className="text-sm leading-relaxed mt-3"
+                    style={{ color: 'rgba(230,216,245,0.9)' }}
+                  >
+                    {r.body}
+                  </p>
+                )}
+              </button>
             ))}
+          </div>
+
+          {/* Contact resources */}
+          <div
+            className="rounded-2xl p-8 grid grid-cols-1 sm:grid-cols-2 gap-6"
+            style={{ background: '#F7EEFF' }}
+          >
+            <div>
+              <p
+                className="text-xs font-bold uppercase tracking-[0.14em] mb-2"
+                style={{ color: '#4A1A7A' }}
+              >
+                Federal Resource
+              </p>
+              <p className="font-serif text-lg font-bold text-[#1C1C2E] mb-1">
+                Dept. of Health & Human Services
+              </p>
+              <a
+                href="https://www.cms.gov/nosurprises"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-sm block mb-0.5 hover:underline"
+                style={{ color: '#4A1A7A', textDecoration: 'none' }}
+              >
+                cms.gov/nosurprises ↗
+              </a>
+              <a
+                href="tel:8776966775"
+                className="text-sm hover:underline"
+                style={{ color: '#3D3D5C', textDecoration: 'none' }}
+              >
+                1-877-696-6775
+              </a>
+            </div>
+            <div>
+              <p
+                className="text-xs font-bold uppercase tracking-[0.14em] mb-2"
+                style={{ color: '#4A1A7A' }}
+              >
+                Texas Resource
+              </p>
+              <p className="font-serif text-lg font-bold text-[#1C1C2E] mb-1">
+                Texas Dept. of Insurance
+              </p>
+              <a
+                href="https://www.tdi.texas.gov/medical-billing/surprise-balance-billing.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-sm block mb-0.5 hover:underline"
+                style={{ color: '#4A1A7A', textDecoration: 'none' }}
+              >
+                tdi.texas.gov ↗
+              </a>
+              <a
+                href="tel:8002523439"
+                className="text-sm hover:underline"
+                style={{ color: '#3D3D5C', textDecoration: 'none' }}
+              >
+                1-800-252-3439
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
       {/* ── CTA ── */}
       <section
-        className="py-20"
-        style={{ background: 'linear-gradient(135deg, #4A1A7A 0%, #7B2FBE 50%, #9B59D0 100%)' }}
-        aria-label="Schedule a consultation"
+        className="relative py-24 overflow-hidden"
+        aria-labelledby="gfe-cta-heading"
       >
-        <div className="max-w-2xl mx-auto px-6 lg:px-10 text-center">
+        <img
+          src="/images/ocean-calm.jpg"
+          alt="Serene ocean shoreline at dawn"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{ background: 'linear-gradient(135deg, rgba(28,10,58,0.92) 0%, rgba(74,26,122,0.88) 100%)' }}
+          aria-hidden="true"
+        />
+        <div className="relative z-10 max-w-2xl mx-auto px-6 lg:px-10 text-center">
           <h2
-            className="text-4xl sm:text-5xl font-light text-white mb-5"
-            style={{ fontFamily: 'var(--font-serif)' }}
+            id="gfe-cta-heading"
+            className="font-serif text-4xl sm:text-5xl font-bold text-white mb-5 leading-tight"
+            style={{ textShadow: '0 2px 6px rgba(0,0,0,0.7)' }}
           >
-            Ready to get<br />
-            <em className="text-[#EDD2FF]">your estimate?</em>
+            Questions about cost?<br />
+            <em className="font-medium" style={{ color: '#FFE9A8' }}>Let's talk first.</em>
           </h2>
-          <p className="text-lg text-white/70 mb-8 leading-relaxed">
-            Schedule a free 15-minute consultation. Your written estimate will be sent before your first session.
+          <p
+            className="text-lg mb-9 max-w-xl mx-auto leading-relaxed"
+            style={{ color: 'rgba(255,255,255,0.8)' }}
+          >
+            Your free 15-minute consultation is the perfect time to ask about rates, your estimate, and what to expect. No pressure, no commitment.
           </p>
-          <Link to="/schedule" className="btn-primary">
-            Schedule My Free Consultation
+          <Link
+            to="/schedule"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-base font-bold transition-all hover:-translate-y-0.5"
+            style={{
+              background: 'linear-gradient(135deg, #B8860B 0%, #C9A84C 100%)',
+              color: '#1C1C2E',
+              boxShadow: '0 6px 18px rgba(184,134,11,0.25)',
+              textDecoration: 'none',
+            }}
+          >
+            Book a Free Consultation <span aria-hidden="true">→</span>
           </Link>
         </div>
       </section>
