@@ -71,13 +71,18 @@ export const Home: React.FC = () => {
           </span>
           <h1
             id="hero-heading"
-            className="font-serif text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
-            style={{ textShadow: '0 2px 6px rgba(0,0,0,0.7), 0 6px 28px rgba(0,0,0,0.6)' }}
+            className="font-serif font-bold text-white"
+            style={{
+              fontSize: 'clamp(3.5rem, 8vw, 5.5rem)',
+              lineHeight: 1.0,
+              marginBottom: '1rem',
+              textShadow: '0 2px 6px rgba(0,0,0,0.7), 0 6px 28px rgba(0,0,0,0.6)',
+            }}
           >
             You deserve to heal<br />
-            <em className="font-medium" style={{ color: '#FFE9A8' }}>fully and freely.</em>
+            <em style={{ color: '#FFE9A8', fontStyle: 'italic', fontWeight: 500 }}>fully and freely.</em>
           </h1>
-          <p className="text-lg sm:text-xl text-white/85 mb-10 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-white/85 mb-10 max-w-2xl mx-auto" style={{ lineHeight: 1.6, marginTop: '1.25rem' }}>
             Exhale TWC offers premium, culturally affirming therapy for Black and Brown individuals ready to invest in their whole-person wellness.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
